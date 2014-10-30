@@ -1,6 +1,7 @@
 #delimit ;
+clear;
 cap log close;
-cd "~/Dropbox/econ381_project";
+cd "~/Desktop/econ381";
 log using "project.log", text replace;
 insheet using "adult_mortality_per_hundred_thousand.csv", comma;
 
@@ -18,7 +19,7 @@ label define yearslabel
 2 "2003-2005" 
 3 "2006-2008" 
 4 "2009-2011";
-label values years yearslabel;
+*label values years yearslabel;
 
 
 * causes: all, cancer, diabetes, cardiovascular disease, heart disease, ischemic heart disease, heart attack, stroke, chronic lower respiratory, chronic liver disease and cirrhosis
@@ -36,7 +37,7 @@ label define causelabel
 8 "stroke"
 9 "chronic lower respirator"
 10 "chronic liver disease and cirrhosis";
-label values cause causelabel;
+*label values cause causelabel;
 
 
 log close;
