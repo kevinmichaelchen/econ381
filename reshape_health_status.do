@@ -33,4 +33,8 @@ reshape long i, i(age years status region) j(income)
 label define incomelabel 1 "all" 2 "poor" 3 "near poor" 4 "nonpoor"
 label values income incomelabel
 
+* cleaning the data
+replace i = . if i == 999
+rename i percent
+
 log close
