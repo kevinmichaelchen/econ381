@@ -37,4 +37,36 @@ label values income incomelabel
 replace i = . if i == 999
 rename i percent
 
+* labeling
+label var years "Years"
+label var status "Health Status"
+label var region "Region"
+label var income "Income"
+label var percent "Percent of Incidence"
+
+* generate status dummies
+gen status_excellent = status == 1
+gen status_good      = status == 2
+gen status_fair      = status == 3
+
+* generate region dummies
+gen region_ne = region == 1
+gen region_me = region == 2
+gen region_s  = region == 3
+gen region_m  = region == 4
+gen region_p  = region == 5
+
+* generate income dummies
+gen income_all      = income == 1
+gen income_poor     = income == 2
+gen income_nearpoor = income == 3
+gen income_nonpoor  = income == 4
+
+
+* as expected, being poor leads to higher incidence
+reg percent income_poor if status_fair & region_ne
+
+* as expected, being nonpoor leads to lower incidence
+reg percent income_nonpoor if status_fair & region_ne
+
 log close
