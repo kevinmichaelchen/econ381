@@ -16,4 +16,5 @@ rename *_y *
 reshape long c, i(state years) j(cause)
 label define causelabel 1 "all" 2 "cancer" 3 "diabetes" 4 "cardiovascular disease" 5 "heart disease" 6 "ischemic heart disease" 7 "heart attack" 8 "stroke" 9 "chronic lower respirator" 10 "chronic liver disease and cirrhosis"
 
+
 log close

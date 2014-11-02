@@ -69,4 +69,6 @@ reg percent income_poor if status_fair & region_ne
 * as expected, being nonpoor leads to lower incidence
 reg percent income_nonpoor if status_fair & region_ne
 
+graph bar percent, over(income) asyvars ytitle("Percent")
+
 log close
