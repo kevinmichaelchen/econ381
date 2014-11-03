@@ -45,31 +45,13 @@ graph bar percent, over(sick_and_poor) asyvars ytitle("Percent") title("Which Re
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 * Look at health over income
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-cap drop health_by_income
-gen health_by_income = .
-replace health_by_income = 1 if !missing(percent) & income_nonpoor & status_fair
-replace health_by_income = 2 if !missing(percent) & income_nonpoor & status_good
-replace health_by_income = 3 if !missing(percent) & income_nonpoor & status_excellent
-
-replace health_by_income = 4 if !missing(percent) & income_nearpoor & status_fair
-replace health_by_income = 5 if !missing(percent) & income_nearpoor & status_good
-replace health_by_income = 6 if !missing(percent) & income_nearpoor & status_excellent
-
-replace health_by_income = 7 if !missing(percent) & income_poor & status_fair
-replace health_by_income = 8 if !missing(percent) & income_poor & status_good
-replace health_by_income = 9 if !missing(percent) & income_poor & status_excellent
-
-cap label drop health_by_income_group
-label define health_by_income_group 1 "rich/fair" 2 "rich/good" 3 "rich/excellent" 4 "nearpoor/fair" 5 "nearpoor/good" 6 "nearpoor/excellent" 7 "poor/fair" 8 "poor/good" 9 "poor/excellent"
-label values health_by_income health_by_income_group
-graph bar percent, over(health_by_income) asyvars ytitle("Percent") title("Self-reported health by income") legend(col(3))
-
-
-
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-* Try means instead of sums
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-
+cap drop fair_health
+cap drop good_health
+cap drop excellent_health
+gen fair_health = status_fair if !missing(percent)
+gen good_health = status_good if !missing(percent)
+gen excellent_health = status_excellent if !missing(percent)
+graph bar fair_health good_health excellent_health, over(income) stack title("Self-reported health by income")
 
 
 log close
