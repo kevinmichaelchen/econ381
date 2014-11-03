@@ -51,7 +51,15 @@ cap drop excellent_health
 gen fair_health = status_fair if !missing(percent)
 gen good_health = status_good if !missing(percent)
 gen excellent_health = status_excellent if !missing(percent)
+label var fair_health "Fair/poor health"
+label var good_health "Good health"
+label var excellent_health "Excellent health"
 graph bar fair_health good_health excellent_health, over(income) stack title("Self-reported health by income")
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+* Look at health over region
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+graph bar fair_health good_health excellent_health, over(region) legend(cols(3) label(1 "Fair Health") label(2 "Good Health") label(3 "Excellent Health")) nolabel asyvars stack showyvars blabel(bar, color(white) position(inside)) title("Health by region") ytitle("Percentage of total self-reports")
 
 
 log close
