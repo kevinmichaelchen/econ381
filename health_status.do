@@ -62,7 +62,7 @@ replace health_by_income = 9 if !missing(percent) & income_poor & status_excelle
 cap label drop health_by_income_group
 label define health_by_income_group 1 "rich/fair" 2 "rich/good" 3 "rich/excellent" 4 "nearpoor/fair" 5 "nearpoor/good" 6 "nearpoor/excellent" 7 "poor/fair" 8 "poor/good" 9 "poor/excellent"
 label values health_by_income health_by_income_group
-graph bar percent, over(health_by_income) asyvars ytitle("Percent") legend(col(3))
+graph bar percent, over(health_by_income) asyvars ytitle("Percent") title("Self-reported health by income") legend(col(3))
 
 
 
