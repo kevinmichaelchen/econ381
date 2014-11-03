@@ -42,7 +42,7 @@ label var years "Years"
 label var status "Health Status"
 label var region "Region"
 label var income "Income"
-label var percent "Percent of Incidence"
+label var percent "Percentage of Subjects that responded a certain way"
 
 * generate status dummies
 gen status_excellent = status == 1
