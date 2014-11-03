@@ -1,7 +1,7 @@
 clear
 cap log close
 cd "~/Desktop/econ381"
-log using "project.log", text replace
+log using "reshape_health_status.log", text replace
 insheet using "health_status.csv", comma
 
 
@@ -51,7 +51,7 @@ gen status_fair      = status == 3
 
 * generate region dummies
 gen region_ne = region == 1
-gen region_me = region == 2
+gen region_mw = region == 2
 gen region_s  = region == 3
 gen region_m  = region == 4
 gen region_p  = region == 5
@@ -62,13 +62,5 @@ gen income_poor     = income == 2
 gen income_nearpoor = income == 3
 gen income_nonpoor  = income == 4
 
-
-* as expected, being poor leads to higher incidence
-reg percent income_poor if status_fair & region_ne
-
-* as expected, being nonpoor leads to lower incidence
-reg percent income_nonpoor if status_fair & region_ne
-
-graph bar percent, over(income) asyvars ytitle("Percent")
 
 log close
