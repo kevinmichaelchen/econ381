@@ -15,6 +15,8 @@ rename *_y *
 * causes: all, cancer, diabetes, cardiovascular disease, heart disease, ischemic heart disease, heart attack, stroke, chronic lower respiratory, chronic liver disease and cirrhosis
 reshape long c, i(state years) j(cause)
 label define causelabel 1 "all" 2 "cancer" 3 "diabetes" 4 "cardiovascular disease" 5 "heart disease" 6 "ischemic heart disease" 7 "heart attack" 8 "stroke" 9 "chronic lower respirator" 10 "chronic liver disease and cirrhosis"
-
+label values cause causelabel
+rename c mortality
+label var mortality "Adult Mortality Per Hundred Thousand"
 
 log close
