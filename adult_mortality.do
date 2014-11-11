@@ -6,12 +6,12 @@ numlabel, add
 tab years
 tab cause
 
-gen all_causes    = cause == 1
-gen cancer        = cause == 2
+gen all_causes    = cause == 1  /* sufficient n */
+gen cancer        = cause == 2  /* sufficient n */
 gen diabetes      = cause == 3
-gen cardio        = cause == 4
-gen heart_disease = cause == 5
-gen ischemic      = cause == 6
+gen cardio        = cause == 4  /* sufficient n */
+gen heart_disease = cause == 5  /* sufficient n */
+gen ischemic      = cause == 6  /* sufficient n */
 gen heart_attack  = cause == 7
 gen stroke        = cause == 8
 gen respiratory   = cause == 9
