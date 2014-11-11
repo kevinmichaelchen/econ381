@@ -17,4 +17,15 @@ gen stroke        = cause == 8
 gen respiratory   = cause == 9
 gen cirrhosis     = cause == 10
 
+count if cause == 1 & !missing(mortality)
+count if cause == 2 & !missing(mortality)
+count if cause == 3 & !missing(mortality)
+count if cause == 4 & !missing(mortality)
+count if cause == 5 & !missing(mortality)
+count if cause == 6 & !missing(mortality)
+count if cause == 7 & !missing(mortality)
+count if cause == 8 & !missing(mortality)
+count if cause == 9 & !missing(mortality)
+count if cause == 10 & !missing(mortality)
+
 log close
