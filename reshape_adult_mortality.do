@@ -1,7 +1,7 @@
 clear
 cap log close
 cd "~/Desktop/econ381"
-log using "project.log", text replace
+log using "reshape_adult_mortality.log", text replace
 insheet using "adult_mortality_per_hundred_thousand.csv", comma
 
 * c<cause>_y<year>
@@ -18,5 +18,7 @@ label define causelabel 1 "all" 2 "cancer" 3 "diabetes" 4 "cardiovascular diseas
 label values cause causelabel
 rename c mortality
 label var mortality "Adult Mortality Per Hundred Thousand"
+
+replace mortality = . if mortality == 999
 
 log close
