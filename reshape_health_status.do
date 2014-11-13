@@ -62,5 +62,9 @@ gen income_poor     = income == 2
 gen income_nearpoor = income == 3
 gen income_nonpoor  = income == 4
 
+* generate percentage of people who responded with a certain health status
+gen percent_excellent = percent if status_excellent
+gen percent_good = percent if status_good
+gen percent_fair = percent if status_fair
 
 log close
