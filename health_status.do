@@ -65,7 +65,8 @@ graph bar fair_health good_health excellent_health, over(income) legend(cols(3) 
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 * Summary statistics
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *gen forced_coex = region_m | region_p
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+gen forced_coex = region_m | region_p
 
 
 log close
