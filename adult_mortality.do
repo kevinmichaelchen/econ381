@@ -6,6 +6,17 @@ numlabel, add
 tab years
 tab cause
 
+cap drop all_causes
+cap drop cancer
+cap drop diabetes
+cap drop cardio
+cap drop heart_disease
+cap drop ischemic
+cap drop heart_attack
+cap drop stroke
+cap drop respiratory
+cap drop cirrhosis
+
 gen all_causes    = mortality if cause == 1  /* sufficient n */
 gen cancer        = mortality if cause == 2  /* sufficient n */
 gen diabetes      = mortality if cause == 3
@@ -27,5 +38,25 @@ count if cause == 7 & !missing(mortality)
 count if cause == 8 & !missing(mortality)
 count if cause == 9 & !missing(mortality)
 count if cause == 10 & !missing(mortality)
+
+cap drop forced_coex
+gen forced_coex = state=="California" | state=="Montana" | state=="Arizona" | state=="Idaho" | state=="Utah"
+
+* not sig
+reg mortality forced_coex
+
+* sig
+reg all_causes forced_coex 
+
+* not sig
+reg cancer forced_coex 
+reg diabetes forced_coex 
+reg cardio forced_coex 
+reg heart_disease forced_coex 
+reg ischemic forced_coex 
+reg heart_attack forced_coex 
+reg stroke forced_coex 
+reg respiratory forced_coex 
+reg cirrhosis forced_coex 
 
 log close
