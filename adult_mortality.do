@@ -1,6 +1,6 @@
 cap log close
 cd "~/Desktop/econ381"
-use "adult_mortality_per_hundred_thousand.dta"
+cap use "datasets/adult_mortality_per_hundred_thousand.dta"
 log using "adult_mortality.log", text replace
 
 numlabel, add
