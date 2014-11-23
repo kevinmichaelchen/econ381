@@ -1,6 +1,6 @@
 clear
 cap log close
-cd "~/Desktop/econ381"
+cd "~/Desktop/econ381/reshape"
 log using "reshape_health_status.log", text replace
 insheet using "health_status.csv", comma
 

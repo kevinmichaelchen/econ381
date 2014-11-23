@@ -1,5 +1,6 @@
 cap log close
 cd "~/Desktop/econ381"
+use "health_status.dta"
 log using "health_status.log", text replace
 
 

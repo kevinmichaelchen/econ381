@@ -1,6 +1,6 @@
 clear
 cap log close
-cd "~/Desktop/econ381"
+cd "~/Desktop/econ381/reshape"
 log using "reshape_adult_mortality.log", text replace
 insheet using "adult_mortality_per_hundred_thousand.csv", comma
 

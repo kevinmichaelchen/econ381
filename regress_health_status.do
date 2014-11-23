@@ -1,5 +1,6 @@
 cap log close
 cd "~/Desktop/econ381"
+use "health_status.dta"
 log using "regress_health_status.log", text replace
 
 * forced coexistence: mountain region or pacific region
