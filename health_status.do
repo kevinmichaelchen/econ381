@@ -40,7 +40,7 @@ cap label drop sick_and_poor_group
 label define sick_and_poor_group 1 "Northeast" 2 "Midwest" 3 "South" 4 "Mountain" 5 "Pacific"
 label values sick_and_poor sick_and_poor_group
 graph bar percent, over(sick_and_poor) asyvars ytitle("Percent") title("Which Region has the Most Sick and Poor?")
-graph export health_status_by_region_and_income.png
+graph export sick_and_poor_by_region.png
 
 
 
@@ -64,6 +64,14 @@ graph export health_status_by_income.png
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 graph bar fair_health good_health excellent_health, over(region) legend(cols(3) label(1 "Fair Health") label(2 "Good Health") label(3 "Excellent Health")) nolabel asyvars stack showyvars blabel(bar, color(white) position(inside)) title("Health by region") ytitle("Percentage of total self-reports")
 graph export health_status_by_region.png
+
+
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+* Look at health over region and income
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+ssc install spineplot
+spineplot region income
 
 
 log close
