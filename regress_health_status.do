@@ -1,5 +1,7 @@
 cap log close
 cd "~/Desktop/econ381"
+*http://repec.org/bocode/e/estout/esttab.html#esttab012
+ssc install estout, replace
 cap use "datasets/health_status.dta"
 log using "regress_health_status.log", text replace
 
@@ -17,13 +19,35 @@ gen forced_nonpoor  = forced_coex * income_nonpoor
 
 * predict the percentage of self-reported "excellent"s 
 * based on income and whether region had forced coexistence
-reg percent_excellent forced_coex income_poor forced_poor
-reg percent_good forced_coex income_poor forced_poor
-reg percent_fair forced_coex income_poor forced_poor
+eststo clear
+eststo: reg percent_excellent forced_coex income_poor forced_poor
+eststo: reg percent_good forced_coex income_poor forced_poor
+eststo: reg percent_fair forced_coex income_poor forced_poor
+eststo: reg percent_excellent forced_coex income_nearpoor forced_nearpoor
+eststo: reg percent_good forced_coex income_nearpoor forced_nearpoor
+eststo: reg percent_fair forced_coex income_nearpoor forced_nearpoor
+eststo: reg percent_excellent forced_coex income_nonpoor forced_nonpoor
+eststo: reg percent_good forced_coex income_nonpoor forced_nonpoor
+eststo: reg percent_fair forced_coex income_nonpoor forced_nonpoor
+esttab using pacific_and_mountain.tex, label nostar replace booktabs ///
+title(Pacific and Mountain\label{both})
 
 
-reg percent_excellent region_p income_poor forced_poor
-reg percent_good region_p income_poor forced_poor
-reg percent_fair region_p income_poor forced_poor
+
+** same thing but with region_p
+eststo clear
+eststo: reg percent_excellent region_p income_poor forced_poor
+eststo: reg percent_good region_p income_poor forced_poor
+eststo: reg percent_fair region_p income_poor forced_poor
+eststo: reg percent_excellent region_p income_nearpoor forced_nearpoor
+eststo: reg percent_good region_p income_nearpoor forced_nearpoor
+eststo: reg percent_fair region_p income_nearpoor forced_nearpoor
+eststo: reg percent_excellent region_p income_nonpoor forced_nonpoor
+eststo: reg percent_good region_p income_nonpoor forced_nonpoor
+eststo: reg percent_fair region_p income_nonpoor forced_nonpoor
+esttab using pacific.tex, label nostar replace booktabs ///
+title(Pacific\label{pacific})
+
+
 
 log close
