@@ -17,36 +17,55 @@ gen forced_poor     = forced_coex * income_poor
 gen forced_nearpoor = forced_coex * income_nearpoor
 gen forced_nonpoor  = forced_coex * income_nonpoor
 
-* predict the percentage of self-reported "excellent"s 
-* based on income and whether region had forced coexistence
+* Effect of Poor Income on Health Status in the Pacific and Mountain regions
 eststo clear
 eststo: reg percent_excellent forced_coex income_poor forced_poor
 eststo: reg percent_good forced_coex income_poor forced_poor
 eststo: reg percent_fair forced_coex income_poor forced_poor
+esttab using p_m_poor.tex, label nostar replace booktabs ///
+title(Effect of Poor Income on Health Statues in the Pacific and Mountain Regions\label{p_m_poor})
+
+* Effect of Near-Poor Income on Health Status in the Pacific and Mountain regions
+eststo clear
 eststo: reg percent_excellent forced_coex income_nearpoor forced_nearpoor
 eststo: reg percent_good forced_coex income_nearpoor forced_nearpoor
 eststo: reg percent_fair forced_coex income_nearpoor forced_nearpoor
+esttab using p_m_nearpoor.tex, label nostar replace booktabs ///
+title(Effect of Near-Poor Income on Health Statues in the Pacific and Mountain Regions\label{p_m_nearpoor})
+
+* Effect of Non-Poor Income on Health Status in the Pacific and Mountain regions
+eststo clear
 eststo: reg percent_excellent forced_coex income_nonpoor forced_nonpoor
 eststo: reg percent_good forced_coex income_nonpoor forced_nonpoor
 eststo: reg percent_fair forced_coex income_nonpoor forced_nonpoor
-esttab using pacific_and_mountain.tex, label nostar replace booktabs ///
-title(Pacific and Mountain\label{both})
+esttab using p_m_nonpoor.tex, label nostar replace booktabs ///
+title(Effect of Non-Poor Income on Health Statues in the Pacific and Mountain Regions\label{p_m_nearpoor})
 
 
 
-** same thing but with region_p
+* Effect of Poor Income on Health Status in the Pacific region
 eststo clear
 eststo: reg percent_excellent region_p income_poor forced_poor
 eststo: reg percent_good region_p income_poor forced_poor
 eststo: reg percent_fair region_p income_poor forced_poor
+esttab using p_poor.tex, label nostar replace booktabs ///
+title(Effect of Poor Income on Health Statues in the Pacific Regions\label{p_poor})
+
+* Effect of Near-Poor Income on Health Status in the Pacific region
+eststo clear
 eststo: reg percent_excellent region_p income_nearpoor forced_nearpoor
 eststo: reg percent_good region_p income_nearpoor forced_nearpoor
 eststo: reg percent_fair region_p income_nearpoor forced_nearpoor
+esttab using p_nearpoor.tex, label nostar replace booktabs ///
+title(Effect of Poor Income on Health Statues in the Pacific Region\label{p_nearpoor})
+
+* Effect of Non-Poor Income on Health Status in the Pacific region
+eststo clear
 eststo: reg percent_excellent region_p income_nonpoor forced_nonpoor
 eststo: reg percent_good region_p income_nonpoor forced_nonpoor
 eststo: reg percent_fair region_p income_nonpoor forced_nonpoor
-esttab using pacific.tex, label nostar replace booktabs ///
-title(Pacific\label{pacific})
+esttab using p_nonpoor.tex, label nostar replace booktabs ///
+title(Effect of Poor Income on Health Statues in the Pacific Region\label{p_nonpoor})
 
 
 
