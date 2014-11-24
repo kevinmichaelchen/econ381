@@ -3,7 +3,7 @@ cd "~/Desktop/econ381"
 *http://repec.org/bocode/e/estout/esttab.html#esttab012
 ssc install estout, replace
 cap use "datasets/health_status.dta"
-log using "regress_health_status.log", text replace
+log using "health_status/regress_health_status.log", text replace
 
 * forced coexistence: mountain region or pacific region
 cap drop forced_coex

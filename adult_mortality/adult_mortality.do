@@ -1,7 +1,7 @@
 cap log close
 cd "~/Desktop/econ381"
 cap use "datasets/adult_mortality_per_hundred_thousand.dta"
-log using "adult_mortality.log", text replace
+log using "adult_mortality/adult_mortality.log", text replace
 
 numlabel, add
 tab years

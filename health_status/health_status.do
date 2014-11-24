@@ -1,7 +1,7 @@
 cap log close
 cd "~/Desktop/econ381"
 cap use "datasets/health_status.dta"
-log using "health_status.log", text replace
+log using "health_status/health_status.log", text replace
 
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
