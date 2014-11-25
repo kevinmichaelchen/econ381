@@ -23,7 +23,7 @@ eststo: reg percent_excellent forced_coex income_poor forced_poor
 eststo: reg percent_good forced_coex income_poor forced_poor
 eststo: reg percent_fair forced_coex income_poor forced_poor
 esttab using p_m_poor.tex, label nostar replace booktabs ///
-title(Effect of Poor Income on Health Statues in the Pacific and Mountain Regions\label{pmpoor})
+title(Effect of Poor Income on Health Statuses in the Pacific and Mountain Regions\label{pmpoor})
 
 * Effect of Near-Poor Income on Health Status in the Pacific and Mountain regions
 eststo clear
@@ -31,7 +31,7 @@ eststo: reg percent_excellent forced_coex income_nearpoor forced_nearpoor
 eststo: reg percent_good forced_coex income_nearpoor forced_nearpoor
 eststo: reg percent_fair forced_coex income_nearpoor forced_nearpoor
 esttab using p_m_nearpoor.tex, label nostar replace booktabs ///
-title(Effect of Near-Poor Income on Health Statues in the Pacific and Mountain Regions\label{pmnearpoor})
+title(Effect of Near-Poor Income on Health Statuses in the Pacific and Mountain Regions\label{pmnearpoor})
 
 * Effect of Non-Poor Income on Health Status in the Pacific and Mountain regions
 eststo clear
@@ -39,7 +39,7 @@ eststo: reg percent_excellent forced_coex income_nonpoor forced_nonpoor
 eststo: reg percent_good forced_coex income_nonpoor forced_nonpoor
 eststo: reg percent_fair forced_coex income_nonpoor forced_nonpoor
 esttab using p_m_nonpoor.tex, label nostar replace booktabs ///
-title(Effect of Non-Poor Income on Health Statues in the Pacific and Mountain Regions\label{pmnonpoor})
+title(Effect of Non-Poor Income on Health Statuses in the Pacific and Mountain Regions\label{pmnonpoor})
 
 
 
@@ -49,7 +49,7 @@ eststo: reg percent_excellent region_p income_poor forced_poor
 eststo: reg percent_good region_p income_poor forced_poor
 eststo: reg percent_fair region_p income_poor forced_poor
 esttab using p_poor.tex, label nostar replace booktabs ///
-title(Effect of Poor Income on Health Statues in the Pacific Regions\label{ppoor})
+title(Effect of Poor Income on Health Statuses in the Pacific Region\label{ppoor})
 
 * Effect of Near-Poor Income on Health Status in the Pacific region
 eststo clear
@@ -57,7 +57,7 @@ eststo: reg percent_excellent region_p income_nearpoor forced_nearpoor
 eststo: reg percent_good region_p income_nearpoor forced_nearpoor
 eststo: reg percent_fair region_p income_nearpoor forced_nearpoor
 esttab using p_nearpoor.tex, label nostar replace booktabs ///
-title(Effect of Poor Income on Health Statues in the Pacific Region\label{pnearpoor})
+title(Effect of Near-Poor Income on Health Statuses in the Pacific Region\label{pnearpoor})
 
 * Effect of Non-Poor Income on Health Status in the Pacific region
 eststo clear
@@ -65,7 +65,7 @@ eststo: reg percent_excellent region_p income_nonpoor forced_nonpoor
 eststo: reg percent_good region_p income_nonpoor forced_nonpoor
 eststo: reg percent_fair region_p income_nonpoor forced_nonpoor
 esttab using p_nonpoor.tex, label nostar replace booktabs ///
-title(Effect of Poor Income on Health Statues in the Pacific Region\label{pnonpoor})
+title(Effect of Non-Poor Income on Health Statuses in the Pacific Region\label{pnonpoor})
 
 
 
