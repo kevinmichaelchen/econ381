@@ -1,5 +1,6 @@
 cap log close
 cd "~/Desktop/econ381"
+ssc install estout, replace
 cap use "datasets/adult_mortality_per_hundred_thousand.dta"
 log using "adult_mortality/adult_mortality.log", text replace
 
@@ -47,14 +48,18 @@ gen forced_coex = state=="California" | state=="Montana" | state=="Arizona" | st
 reg mortality forced_coex
 
 * sig
-reg all_causes forced_coex 
+eststo clear
+eststo: reg all_causes forced_coex 
 
 * not sig
-reg cancer forced_coex 
-reg diabetes forced_coex 
-reg cardio forced_coex 
-reg heart_disease forced_coex 
-reg ischemic forced_coex 
+eststo: reg cancer forced_coex 
+eststo: reg diabetes forced_coex 
+eststo: reg cardio forced_coex 
+eststo: reg heart_disease forced_coex 
+eststo: reg ischemic forced_coex 
+esttab using adult.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence on Adult Mortality\label{adult})
+
 reg heart_attack forced_coex 
 reg stroke forced_coex 
 reg respiratory forced_coex 
