@@ -127,7 +127,8 @@ esttab using adult2.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (CA, WA) on Adult Mortality\label{adult2})
 
 ** MODEL 3
-replace forced_coex = state=="California" | state=="Washington" | state=="Arizona" | state=="Utah"
+replace forced_coex = 	state=="California" | state=="Washington" | ///
+						state=="Arizona" 	| state=="Utah"
 eststo clear
 eststo: reg all_causes forced_coex
 eststo: reg cancer forced_coex 
@@ -139,7 +140,9 @@ esttab using adult3.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (CA, WA, AZ, UT) on Adult Mortality\label{adult3})
 
 ** MODEL 4
-replace forced_coex = state=="California" | state=="Washington" | state=="Montana" | state=="Arizona" | state=="Idaho" | state=="Utah"
+replace forced_coex = 	state=="California" | state=="Washington" 	| ///
+						state=="Montana" 	| state=="Arizona" 		| ///
+						state=="Idaho" 		| state=="Utah"
 eststo clear
 eststo: reg all_causes forced_coex
 eststo: reg cancer forced_coex 
@@ -149,12 +152,6 @@ eststo: reg respiratory forced_coex
 eststo: reg cirrhosis forced_coex 
 esttab using adult4.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (CA, WA, MT, AZ, ID, UT) on Adult Mortality\label{adult4})
-
-
-
-* GRAPH MORTALITY OVER STATE
-graph bar cancer diabetes cardio heart_disease ischemic heart_attack stroke respiratory cirrhosis, over(state_abbrev) nolabel asyvars stack showyvars title("Mortality by state") ytitle("Per hundred thousand mortality")
-*graph export mortality_by_state.png
 
 
 log close
