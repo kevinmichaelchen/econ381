@@ -42,27 +42,62 @@ count if cause == 9 & !missing(mortality)
 count if cause == 10 & !missing(mortality)
 
 cap drop forced_coex
-gen forced_coex = state=="California" | state=="Montana" | state=="Arizona" | state=="Idaho" | state=="Utah"
 
-* not sig
-reg mortality forced_coex
-
-* sig
+** MODEL 1
+gen forced_coex = state=="California"
+reg cardio forced_coex
+reg ischemic forced_coex
+reg heart_attack forced_coex
+reg stroke forced_coex
 eststo clear
-eststo: reg all_causes forced_coex 
-
-* not sig
+eststo: reg all_causes forced_coex
 eststo: reg cancer forced_coex 
 eststo: reg diabetes forced_coex 
-eststo: reg cardio forced_coex 
 eststo: reg heart_disease forced_coex 
-eststo: reg ischemic forced_coex 
-esttab using adult.tex, label nostar replace booktabs ///
-title(Effect of Forced Coexistence on Adult Mortality\label{adult})
+eststo: reg respiratory forced_coex 
+eststo: reg cirrhosis forced_coex 
+esttab using adult1.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence (CA) on Adult Mortality\label{adult1})
 
-reg heart_attack forced_coex 
-reg stroke forced_coex 
-reg respiratory forced_coex 
-reg cirrhosis forced_coex 
+** MODEL 2
+replace forced_coex = state=="California" | state=="Washington"
+eststo clear
+eststo: reg all_causes forced_coex
+eststo: reg cancer forced_coex 
+eststo: reg diabetes forced_coex 
+eststo: reg heart_disease forced_coex 
+eststo: reg respiratory forced_coex 
+eststo: reg cirrhosis forced_coex 
+esttab using adult2.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence (CA, WA) on Adult Mortality\label{adult2})
+
+** MODEL 3
+replace forced_coex = state=="California" | state=="Washington" | state=="Arizona" | state=="Utah"
+eststo clear
+eststo: reg all_causes forced_coex
+eststo: reg cancer forced_coex 
+eststo: reg diabetes forced_coex 
+eststo: reg heart_disease forced_coex 
+eststo: reg respiratory forced_coex 
+eststo: reg cirrhosis forced_coex 
+esttab using adult3.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence (CA, WA, AZ, UT) on Adult Mortality\label{adult3})
+
+** MODEL 4
+replace forced_coex = state=="California" | state=="Washington" | state=="Montana" | state=="Arizona" | state=="Idaho" | state=="Utah"
+eststo clear
+eststo: reg all_causes forced_coex
+eststo: reg cancer forced_coex 
+eststo: reg diabetes forced_coex 
+eststo: reg heart_disease forced_coex 
+eststo: reg respiratory forced_coex 
+eststo: reg cirrhosis forced_coex 
+esttab using adult4.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence (CA, WA, MT, AZ, ID, UT) on Adult Mortality\label{adult4})
+
+
+
+
+
 
 log close
