@@ -1,7 +1,6 @@
 See [the writeup](https://www.sharelatex.com/project/546e24272d2cd2b879966756)
 
 * describe self-reports health table  
-* include summary stats for individual diseases  
 * include our hypothesis before we run regression  
 * section talking more about forced coexistence  
 * say WE ARE NOT using forced coexistence as an IV  

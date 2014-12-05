@@ -1,6 +1,7 @@
 cap log close
 cd "~/Desktop/econ381"
 ssc install estout, replace
+ssc install sutex, replace
 cap use "datasets/adult_mortality_per_hundred_thousand.dta"
 log using "adult_mortality/adult_mortality.log", text replace
 
@@ -84,6 +85,10 @@ gen heart_attack  = mortality if cause == 7
 gen stroke        = mortality if cause == 8
 gen respiratory   = mortality if cause == 9
 gen cirrhosis     = mortality if cause == 10
+
+
+sum all_causes cancer diabetes cardio heart_disease ischemic heart_attack stroke respiratory cirrhosis
+sutex
 
 count if cause == 1 & !missing(mortality)
 count if cause == 2 & !missing(mortality)
