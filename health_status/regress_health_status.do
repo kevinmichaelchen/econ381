@@ -35,5 +35,21 @@ eststo: reg percent_fair region_p income_poor forced_poor
 esttab using p_poor.tex, label nostar replace booktabs ///
 title(Effect of Poor Income on Health Statuses in the Pacific Region\label{ppoor})
 
+* Effect of FCE on health statuses in P/M regions
+eststo clear
+eststo: reg percent_excellent forced_coex
+eststo: reg percent_good forced_coex
+eststo: reg percent_good forced_coex
+esttab using statuspm.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence (Pacific and Mountain) on Health Statuses\label{statuspm})
+
+* Effect of FCE on health statuses in P region
+eststo clear
+eststo: reg percent_excellent region_p
+eststo: reg percent_good region_p
+eststo: reg percent_good region_p
+esttab using statusp.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence (Pacific) on Health Statuses\label{statusp})
+
 
 log close

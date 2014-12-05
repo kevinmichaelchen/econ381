@@ -241,6 +241,7 @@ Tables~\ref{adult2} and \ref{adult3} show similar results.
 
 By contrast, in Table~\ref{adult1} where the only forced coexistence state is California, we find that forced coexistence is less significant on ``all causes'' but has a more significant effect on the indivudal diseases across the board.
 
+% TODO justify what states we use based on which states have the highest ratio: FCE reservations / total reservations
 \begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (CA) on Adult Mortality\label{adult1}} \begin{tabular}{l*{6}{c}} \toprule
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
                     &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
@@ -316,6 +317,39 @@ Observations        &         198&         170&          90&         172&       
 
 
 \subsection{Health status}
+\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (Pacific) on Health Statuses\label{statusp}} \begin{tabular}{l*{3}{c}} \toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{percent\_excellent}&\multicolumn{1}{c}{percent\_good}&\multicolumn{1}{c}{percent\_good}\\
+\midrule
+region\_p            &      -9.423&       7.643&       7.643\\
+                    &     (-8.00)&      (9.65)&      (9.65)\\
+\addlinespace
+Constant            &       52.38&       31.98&       31.98\\
+                    &     (99.27)&     (82.35)&     (82.35)\\
+\midrule
+Observations        &         568&         487&         487\\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (Pacific and Mountain) on Health Statuses\label{statuspm}} \begin{tabular}{l*{3}{c}} \toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{percent\_excellent}&\multicolumn{1}{c}{percent\_good}&\multicolumn{1}{c}{percent\_good}\\
+\midrule
+forced\_coex         &      -8.665&       6.070&       6.070\\
+                    &     (-9.08)&      (8.74)&      (8.74)\\
+\addlinespace
+Constant            &       53.86&       31.24&       31.24\\
+                    &     (90.54)&     (68.95)&     (68.95)\\
+\midrule
+Observations        &         568&         487&         487\\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\end{tabular}
+\end{table}
+
 Originally there were three income levels: poor, nearpoor, and non-poor. However, to simplify things and work with a convenient binary, we combined poor and nearpoor.
 
 Thus, Table~\ref{ppoor} shows the effect of being poor (or nearpoor) on self-reported health statuses in the Pacific region. Table~\ref{pmpoor} is the same but for the Pacific and Mountain regions.
@@ -399,10 +433,7 @@ Observations        &         568&         487&         356\\
 \section{Discussion}
 \subsection{Self-reported health statuses}
 \subsubsection{Interpreting the interaction term}
-
-Interestingly, in Table~\ref{pnearpoor}, neither income nor the interaction term has a statistically significant effect on the reported health status of the near poor in the Pacific, suggesting that other variables unique to the region may be playing a large part in the large drop from excellent to good health perception.  Moreover, if these variables were related to income or forced coexistence, they could be clouding our findings.
-
-%The interaction term is an offsetting effect because the two variables are somewhat correlated. In other words, people in forced coexistence areas are also more likely to be poor. Meaning that if we were to only regress \% fair on poor, you would be in part capturing the correlation between being poor and in part being in forced coexistence. So being poor undermines health, being in forced coexistence undermines health. However, being poor in a forced coexistence area is less correlated with the likelihood you think you are in poor health. One possible interpretation is that in forced coexistence communities the poor are comparing their health to others similar to them whereas in the poor in non-forced coexistence communities live in wealthier areas and subjectly evaluate the health to be poorer. It would be interesting to see if you still get this negative interaction effect when looking at the mortality figures as that might help you to distinguish between perceptions vs actual health discrepancies between poor in forced coexistence and non-forced coexistence areas. 
+% TODO
 
 \subsection{Adult mortality}
 \subsubsection{The whole, but not the pieces}
