@@ -1,7 +1,5 @@
 See [the writeup](https://www.sharelatex.com/project/546e24272d2cd2b879966756)
 
-* describe self-reports health table  
-* include our hypothesis before we run regression  
 * section talking more about forced coexistence  
 * say WE ARE NOT using forced coexistence as an IV  
 * diff-in-diff between states/regions more likely to be forced coex vs less likely to be forced coex (just SPATIAL, not TEMPORAL)  

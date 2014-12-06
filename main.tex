@@ -7,6 +7,8 @@
 \usepackage{hyperref}
 \usepackage{setspace}
 \usepackage{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 %\usepackage{titling}
 
@@ -130,7 +132,11 @@ None of these consider the effect of forced integration on health outcomes.
 The data comes from the Center for Disease Control and Prevention (CDC). We use two separate data sets downloaded from the CDC's health interactive database.
 
 \subsection{Adult mortality data}
-Table~\ref{sumstat} shows summary statistics about adult mortality per hundred thousand people.
+The adult mortality data set contains the cause of death for Native Americans, and it is measured in deaths per 100,000.
+The data set is segmented within the U.S. by state and by year 2000-2011 in 3 year segments.
+The significant causes of death were cancer, diabetes, major cardiovascular diseases, heart diseases, Ischemic heart disease, heart attack, stroke, respiratory ailments, and liver disease and cirrhosis.
+
+Table~\ref{sumstat} shows statistics for adult mortality per hundred thousand people, aggregated for all states. The reason the number of observations varies for each disease is that diseases will be recorded as missing values in states where their mortality rates are too low.
 
 \begin{table}[htbp]\centering \caption{Summary statistics \label{sumstat}}
 \begin{tabular}{ | l || c | c | c |}\hline\hline
@@ -166,9 +172,9 @@ cirrhosis & 34.876 & 20.879  & 90\\
 \subsection{Self-reported health status data}
 The first data set contains the self-reported health status for Native Americans, which is measured as excellent, good, or fair/poor, and it is measured in percent as well as base count.  The data takes all of reported data from the Native American population of the U.S. and segments it by region of the country, by income status (poor, near poor, and non-poor) and by year from 1998-2012 in 3 year segments.
 
-Figure~\ref{fig:health_status_by_income} shows the composition of self-reported health statuses across different income groups: \emph{nonpoor}, the highest income group, has the largest fraction of people who reported they had ``excellent'' health.
+Figure~\ref{fig:health_status_by_income} shows the composition of self-reported health statuses across different income groups. Note that \emph{nonpoor}, the highest income group, has the largest percentage of people who reported they had ``excellent'' health and the smallest percentage of people who reported they had ``poor'' health. This is somewhat expected, as wealthier people tend to have better health. Wealthier people are on average more aware of their health and tend to report lower health statuses. However, we hypothesize that ``nonpoor'' people are reporting their health statuses relative to how they perceive the health of others. 
 
-Figure~\ref{fig:health_status_by_region} shows the composition of self-reported health statuses across different regions: the northeast has the highest fraction of self-reported ``excellent''s.
+Figure~\ref{fig:health_status_by_region} shows the composition of self-reported health statuses across different regions. Note that the northeast has the highest percentage of self-reported ``excellent''s and the lowest percentage of self-reported ``poor''s. The health status compositions of the Mountain and Pacific regions do not appear to be different from those of the Midwest and the South. However, we hypothesize that the Pacific and Mountain regions -- where there has been historical forced coexistence -- have a larger percentage of those who report poor health and a smaller percentage of those who report excellent health.
 
 \begin{figure}[ht!]
 \centering
@@ -179,31 +185,35 @@ Figure~\ref{fig:health_status_by_region} shows the composition of self-reported 
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.5]{health_status_by_region.png}
+\includegraphics[scale=0.5]{health_status_by_income.png}
 \caption{self-reported health by region}
 \label{fig:health_status_by_region}
 \end{figure}
 
-The second data set contains the cause of death for Native Americans, and it is measured in deaths per 100,000.  The data set is segmented within the U.S. by state and by year 2000-2011 in 3 year segments.  The significant causes of death were cancer, diabetes, major cardiovascular diseases, heart diseases, Ischemic heart disease, heart attack, stroke, respiratory ailments, and liver disease and cirrhosis.
+
+\begin{figure}[ht!]
+\centering
+\begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.25]{mining.png}
+    \caption{Geo-database on Mining Clusters in Precious Metals and Coal}
+    \label{fig:strat:mining}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.3]{forcedintegration.png}
+    \caption{Reservations with (red square) and without (yellow circle) forced integration.}
+    \label{fig:strat:reservations}
+\end{subfigure}
+\caption{Basis for stratifying by the presence of historical forced coexistence.}
+\label{fig:strat}
+\end{figure}
 
 \subsection{Stratification by presence of forced coexistence}
-Figure~\ref{fig:reservations} shows states/regions in which autonomous sub-tribal bands experienced forced integration. 
+Figure~\ref{fig:strat:reservations} shows states/regions in which autonomous sub-tribal bands experienced forced integration. To account for potential selection into forced integration, Dippel uses historical mining rushes (as depicted in Figure~\ref{fig:strat:mining}) as a source of exogenous variation in the government's incentive to forcefully integrate bands onto reservations. 
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[scale=0.3]{forcedintegration.png}
-\caption{Reservations with (red square) and without (yellow circle) forced integration.}
-\label{fig:reservations}
-\end{figure}
+In determining whether a region or state is a forced coexistence state, we consider its ratio of the number of reservations with forced integration to the total number of reservations. We consider states or regions with a ratio above some threshold to have forced coexistence.
 
-To account for potential selection into forced integration, Dippel uses historical mining rushes (as depicted in Figure~\ref{fig:mining}) as a source of exogenous variation in the government's incentive to forcefully integrate bands onto reservations. 
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[scale=0.25]{mining.png}
-\caption{Geo-database on Mining Clusters in Precious Metals and Coal}
-\label{fig:mining}
-\end{figure}
 
 
 % % % % % % % % % % % % % % % %
