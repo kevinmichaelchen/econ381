@@ -86,6 +86,8 @@ gen stroke        = mortality if cause == 8
 gen respiratory   = mortality if cause == 9
 gen cirrhosis     = mortality if cause == 10
 
+gen chronic = cancer | diabetes | cardio | heart_disease | ischemic | cirrhosis
+
 
 sum all_causes cancer diabetes cardio heart_disease ischemic heart_attack stroke respiratory cirrhosis
 sutex
