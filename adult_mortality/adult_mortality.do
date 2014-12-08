@@ -64,6 +64,8 @@ replace state_abbrev = "WV" if state=="West Virginia"
 replace state_abbrev = "WI" if state=="Wisconsin"
 replace state_abbrev = "WY" if state=="Wyoming"
 
+drop if state=="U.S."
+
 cap drop all_causes
 cap drop cancer
 cap drop diabetes
