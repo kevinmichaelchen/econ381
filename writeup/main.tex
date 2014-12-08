@@ -77,12 +77,19 @@ This would suggest that the question is relevant at a much larger scale, where s
 
 This paper attempts to answer this question by using a differences-in-differences strategy with spatial dimensions. 
 We collect data on Native American health outcomes from a 1998-2012 database from the Center for Disease and Control and Prevention (CDC).
-The crux of our strategy relies on the variable ``forced integration,'' which was coined by \cite{dippel2010forced}.
-In the Pacific and some Mountain states, historical mining rushes incentivized the U.S. government to provide less land to the Native Americans in these areas. 
-Consequently, reservations in these states were forced to integrate and coexist with other Native American nations. 
-We stratify data into two spatial camps: those data from states/regions where forced coexistence (FC) was likely and those data from states/regions where FC was less likely.
-By comparing the health outcomes of Native Americans in these states over time, we separate and find the statistical effects of forced coexistence solely on health outcomes.
+The crux of our strategy relies on whether Native American sub-tribal bands in states and regions were historically forced to integrate.
 
+\subsection{Historical background}
+%TODO spruce this up
+US government has history of dispossessing and relocating Native Americans.
+This was especially true when said tribes lived on resource-rich land. 
+\cite{dippel2010forced} uses historical mining rushes as an IV, a source of exogenous variation in the government's incentive to combine bands onto reservations.
+We do not do this and therefore do not account for potential selection in forced integration. 
+We merely borrow data from Dippel on forced integration.
+Specifically, we use the number of reservations in a state/region with and without forced coexistence.
+This allows us to stratify data into two spatial camps: those data from states/regions where forced coexistence (FC) was likely and those data from states/regions where FC was less likely.
+By comparing the health outcomes of Native Americans in these states over time, we separate and find the statistical effects of forced coexistence solely on health outcomes.
+    
 The overall effects of forced coexistence are somewhat complex, though the overall trend of health outcomes, even having separated out income, is clearly downward for Native Americans in FC regions. 
 One of the ways we proxy for health outcomes is by comparing individuals' self-reported health statuses, which are either excellent, good, or fair/poor.
 We find that individuals' perceptions of their own health are lower in FC regions. 
