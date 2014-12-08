@@ -74,6 +74,7 @@ cap drop heart_attack
 cap drop stroke
 cap drop respiratory
 cap drop cirrhosis
+cap drop chronic
 
 gen all_causes    = mortality if cause == 1  /* sufficient n */
 gen cancer        = mortality if cause == 2  /* sufficient n */
@@ -85,8 +86,8 @@ gen heart_attack  = mortality if cause == 7
 gen stroke        = mortality if cause == 8
 gen respiratory   = mortality if cause == 9
 gen cirrhosis     = mortality if cause == 10
-
-gen chronic = cancer | diabetes | cardio | heart_disease | ischemic | cirrhosis
+gen chronic       = mortality if cancer | diabetes | cardio | ///
+                                 heart_disease | ischemic | cirrhosis
 
 
 sum all_causes cancer diabetes cardio heart_disease ischemic heart_attack stroke respiratory cirrhosis
@@ -111,25 +112,26 @@ reg cardio forced_coex
 reg ischemic forced_coex
 reg heart_attack forced_coex
 reg stroke forced_coex
+
 eststo clear
-eststo: reg all_causes forced_coex
-eststo: reg cancer forced_coex 
-eststo: reg diabetes forced_coex 
-eststo: reg heart_disease forced_coex 
-eststo: reg respiratory forced_coex 
-eststo: reg cirrhosis forced_coex 
+eststo: quietly reg all_causes forced_coex
+eststo: quietly reg cancer forced_coex 
+eststo: quietly reg diabetes forced_coex 
+eststo: quietly reg heart_disease forced_coex 
+eststo: quietly reg respiratory forced_coex 
+eststo: quietly reg cirrhosis forced_coex 
 esttab using adult1.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (CA) on Adult Mortality\label{adult1})
 
 ** MODEL 2
 replace forced_coex = state=="California" | state=="Washington"
 eststo clear
-eststo: reg all_causes forced_coex
-eststo: reg cancer forced_coex 
-eststo: reg diabetes forced_coex 
-eststo: reg heart_disease forced_coex 
-eststo: reg respiratory forced_coex 
-eststo: reg cirrhosis forced_coex 
+eststo: quietly reg all_causes forced_coex
+eststo: quietly reg cancer forced_coex 
+eststo: quietly reg diabetes forced_coex 
+eststo: quietly reg heart_disease forced_coex 
+eststo: quietly reg respiratory forced_coex 
+eststo: quietly reg cirrhosis forced_coex 
 esttab using adult2.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (CA, WA) on Adult Mortality\label{adult2})
 
@@ -137,28 +139,43 @@ title(Effect of Forced Coexistence (CA, WA) on Adult Mortality\label{adult2})
 replace forced_coex = 	state=="California" | state=="Washington" | ///
 						state=="Arizona" 	| state=="Utah"
 eststo clear
-eststo: reg all_causes forced_coex
-eststo: reg cancer forced_coex 
-eststo: reg diabetes forced_coex 
-eststo: reg heart_disease forced_coex 
-eststo: reg respiratory forced_coex 
-eststo: reg cirrhosis forced_coex 
+eststo: quietly reg all_causes forced_coex
+eststo: quietly reg cancer forced_coex 
+eststo: quietly reg diabetes forced_coex 
+eststo: quietly reg heart_disease forced_coex 
+eststo: quietly reg respiratory forced_coex 
+eststo: quietly reg cirrhosis forced_coex 
 esttab using adult3.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (CA, WA, AZ, UT) on Adult Mortality\label{adult3})
 
 ** MODEL 4
 replace forced_coex = 	state=="California" | state=="Washington" 	| ///
-						state=="Montana" 	| state=="Arizona" 		| ///
-						state=="Idaho" 		| state=="Utah"
+						state=="Arizona" 	| state=="Utah" 		| ///
+						state=="Idaho" 		| state=="Montana"
 eststo clear
-eststo: reg all_causes forced_coex
-eststo: reg cancer forced_coex 
-eststo: reg diabetes forced_coex 
-eststo: reg heart_disease forced_coex 
-eststo: reg respiratory forced_coex 
-eststo: reg cirrhosis forced_coex 
+eststo: quietly reg all_causes forced_coex
+eststo: quietly reg cancer forced_coex 
+eststo: quietly reg diabetes forced_coex 
+eststo: quietly reg heart_disease forced_coex 
+eststo: quietly reg respiratory forced_coex 
+eststo: quietly reg cirrhosis forced_coex 
 esttab using adult4.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (CA, WA, MT, AZ, ID, UT) on Adult Mortality\label{adult4})
 
+
+cap drop f1
+cap drop f2
+cap drop f3
+cap drop f4
+
+gen f1 = 	state=="California"
+reg chronic f1
+
+gen f2 = 	state=="California" | state=="Washington"
+reg chronic f2
+
+gen f3 = 	state=="California" | state=="Washington" | ///
+			state=="Arizona" 	| state=="Utah"
+reg chronic f3
 
 log close
