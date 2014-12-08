@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 
+\usepackage[left=1.25in,right=1.25in]{geometry}
+%\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{booktabs}
 \usepackage{pdflscape}
 \usepackage{graphicx}
@@ -9,7 +11,7 @@
 \usepackage{natbib}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
 %\usepackage{titling}
 
 
@@ -144,40 +146,28 @@ The data come from the Center for Disease Control and Prevention (CDC). We use t
 \subsection{Adult mortality data}
 The adult mortality data set contains the cause of death for Native Americans, and it is measured in deaths per 100,000.
 The data set is segmented within the U.S. by state and by year 2000-2011 in 3 year segments.
-The significant causes of death were cancer, diabetes, major cardiovascular diseases, heart diseases, Ischemic heart disease, heart attack, stroke, respiratory ailments, and liver disease and cirrhosis.
+The significant causes of death are cancer, diabetes, major cardiovascular diseases, heart diseases, Ischemic heart disease, heart attack, stroke, respiratory ailments, and liver disease and cirrhosis.
 
 Table~\ref{sumstat} shows statistics for adult mortality per hundred thousand people, aggregated for all states.
 The reason the number of observations varies for each disease is that diseases will be recorded as missing values in states where their mortality rates are too low.
 
 \begin{table}[htbp]\centering \caption{Summary statistics \label{sumstat}}
-\begin{tabular}{ | l || c | c | c |}\hline\hline
-%\multicolumn{1}{c}{\textbf{Variable}} & \textbf{Mean} & \textbf{Std. Dev.} & \textbf{N}\\ \hline
-\textbf{Variable} & \textbf{Mean} & \textbf{Std. Dev.} & \textbf{N} \\\hline
-%state &  &   & 0\\
-%years & 2.5 & 1.118  & 2080\\
-%cause & 5.5 & 2.873  & 2080\\
-%mortality & 199.474 & 261.175  & 1304\\
-%state\_abbrev &  &   & 0\\
-all\_causes & 672.272 & 372.953  & 198\\\hline
-cancer & 137.856 & 77.035  & 170\\\hline
-diabetes & 58.477 & 30.299  & 90\\\hline
-cardio & 208.839 & 109.973  & 184\\\hline
-heart\_disease & 160.079 & 83.184  & 172\\\hline
-ischemic & 111.496 & 63.119  & 155\\\hline
-heart\_attack & 49.452 & 26.794  & 90\\\hline
-stroke & 46.482 & 19.866  & 78\\\hline
-respiratory & 49.988 & 28.819  & 77\\\hline
-cirrhosis & 34.876 & 20.879  & 90\\
-%forced\_coex & 0.115 & 0.32  & 2080\\
-%\_est\_est1 & 0.095 & 0.294  & 2080\\
-%\_est\_est2 & 0.082 & 0.274  & 2080\\
-%\_est\_est3 & 0.043 & 0.204  & 2080\\
-%\_est\_est4 & 0.083 & 0.275  & 2080\\
-%\_est\_est5 & 0.037 & 0.189  & 2080\\
-%\_est\_est6 & 0.043 & 0.204  & 2080\\
+\begin{tabular}{l c c  c c}\hline\hline
+\textbf{Variable} & \textbf{Mean} & \textbf{Std. Dev.} & \textbf{N} & \textbf{Chronic} \\\hline
+all\_causes & 672.252 & 376.756  & 194 & No\\
+cancer & 138.158 & 77.932  & 166 & Yes\\
+diabetes & 59.31 & 30.74  & 86 & Yes\\
+cardio & 209.017 & 111.124  & 180 & Yes\\
+heart\_disease & 160.281 & 84.119  & 168 & Yes\\
+ischemic & 111.663 & 63.896  & 151 & Yes\\
+heart\_attack & 50.081 & 27.209  & 86 & No\\
+stroke & 47.078 & 20.183  & 74 & No\\
+respiratory & 50.982 & 29.281  & 73 & No\\
+cirrhosis & 35.449 & 21.189  & 86 & Yes\\
 \hline
 \end{tabular}
 \end{table}
+
 
 
 \subsection{Self-reported health status data}
@@ -283,71 +273,7 @@ Tables~\ref{adult2} and \ref{adult3} show similar results.
 By contrast, in Table~\ref{adult1} where the only FC state is California, we find that forced coexistence is less significant on ``all causes'' but has a more significant effect on the indivudal diseases across the board.
 
 % TODO justify what states we use based on which states have the highest ratio: FCE reservations / total reservations
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (CA) on Adult Mortality\label{adult1}} \begin{tabular}{l*{6}{c}} \toprule
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-                    &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
-\midrule
-forced\_coex         &      -269.8&      -57.41&      -39.72&      -55.60&      -26.88&      -20.56\\
-                    &     (-1.44)&     (-1.48)&     (-2.65)&     (-1.32)&     (-1.85)&     (-1.96)\\
-\addlinespace
-Constant            &       677.7&       139.2&       60.24&       161.4&       51.38&       35.79\\
-                    &     (25.38)&     (23.36)&     (19.05)&     (25.20)&     (15.47)&     (16.15)\\
-\midrule
-Observations        &         198&         170&          90&         172&          77&          90\\
-\bottomrule
-\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
-\end{tabular}
-\end{table}
-
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (CA, WA) on Adult Mortality\label{adult2}} \begin{tabular}{l*{6}{c}} \toprule
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-                    &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
-\midrule
-forced\_coex         &       8.926&      -9.582&      -26.65&       0.612&      -11.51&      -11.98\\
-                    &      (0.07)&     (-0.34)&     (-2.44)&      (0.02)&     (-1.07)&     (-1.56)\\
-\addlinespace
-Constant            &       671.9&       138.3&       60.85&       160.1&       51.18&       35.94\\
-                    &     (24.77)&     (22.79)&     (18.68)&     (24.57)&     (14.77)&     (15.71)\\
-\midrule
-Observations        &         198&         170&          90&         172&          77&          90\\
-\bottomrule
-\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
-\end{tabular}
-\end{table}
-
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (CA, WA, AZ, UT) on Adult Mortality\label{adult3}} \begin{tabular}{l*{6}{c}} \toprule
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-                    &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
-\midrule
-forced\_coex         &       109.1&      -15.61&      -8.462&      -4.298&      -21.08&      -3.883\\
-                    &      (1.12)&     (-0.77)&     (-1.01)&     (-0.20)&     (-2.40)&     (-0.66)\\
-\addlinespace
-Constant            &       663.5&       139.3&       59.98&       160.5&       53.27&       35.52\\
-                    &     (24.01)&     (22.42)&     (17.03)&     (24.03)&     (15.36)&     (14.69)\\
-\midrule
-Observations        &         198&         170&          90&         172&          77&          90\\
-\bottomrule
-\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
-\end{tabular}
-\end{table}
-
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (CA, WA, MT, AZ, ID, UT) on Adult Mortality\label{adult4}} \begin{tabular}{l*{6}{c}} \toprule
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-                    &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
-\midrule
-forced\_coex         &       230.2&       12.92&       2.276&       17.14&      -8.214&       5.815\\
-                    &      (2.89)&      (0.76)&      (0.31)&      (0.94)&     (-1.01)&      (1.15)\\
-\addlinespace
-Constant            &       644.4&       136.0&       57.87&       157.7&       51.70&       33.39\\
-                    &     (23.21)&     (21.31)&     (15.44)&     (23.05)&     (14.01)&     (13.11)\\
-\midrule
-Observations        &         198&         170&          90&         172&          77&          90\\
-\bottomrule
-\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
-\end{tabular}
-\end{table}
-
-
+% TODO include table for Forced Coex (some states) on adult mortality of diseases
 
 
 
@@ -392,10 +318,10 @@ Observations        &         568&         487&         487\\
 \end{table}
 
 Originally there were three income levels: poor, nearpoor, and non-poor.
-However, to simplify things and work with a convenient binary, we combined poor and nearpoor.
+However, to simplify things, we consider \emph{nearpoor} as \emph{poor}, thereby giving us a convenient binary to work with.
 
-Thus, Table~\ref{ppoor} shows the effect of being poor (or nearpoor) on self-reported health statuses in the Pacific region.
-Table~\ref{pmpoor} is the same but for the Pacific and Mountain regions.
+Table~\ref{pmpoor} shows the effect of being poor (or nearpoor) on self-reported health statuses in the Pacific and Mountain regions.
+Table~\ref{ppoor} shows the same but for the Pacific region only.
 
 Using both the Pacific and Mountain regions, we find that for all income groups, living in FC regions saw significantly lower levels of excellent health outcomes reported as well as an increased percentage stating their health to be merely good or fair among Native Americans.
 Among the poor, who are especially populous among Native Americans, the interaction term between living in a FC region and being poor is statistically significant for percentage reporting good health, and it increases the percentage reporting good by 3.95 percentage points whereas income itself is statistically insignificant.
