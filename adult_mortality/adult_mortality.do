@@ -100,6 +100,13 @@ foreach v of heart_attack stroke respiratory {
 	replace nonchronic = nonchronic + mortality if `v' & !missing(mortality)
 }
 
+for each s of states {
+	gen chronic = 0
+	for each y of years {
+		
+	}
+} 
+
 
 
 sum all_causes cancer diabetes cardio heart_disease ischemic heart_attack stroke respiratory cirrhosis
