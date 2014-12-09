@@ -16,7 +16,6 @@
 
 
 \hypersetup{
-    bookmarks=true,         % show bookmarks bar?
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
     pdftoolbar=true,        % show Acrobat’s toolbar?
     pdfmenubar=true,        % show Acrobat’s menu?
@@ -54,23 +53,6 @@ Are Native American health outcomes lower in states and regions in which the US 
 \end{abstract}
 
 \newpage
-
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (CA, WA, MT, AZ, ID, UT) on Adult Mortality\label{adult4}} \begin{tabular}{l*{6}{c}} \toprule
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-                    &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
-\midrule
-forced\_coex         &       230.9&       12.62&       1.159&       16.97&      -9.606&       5.127\\
-                    &      (2.86)&      (0.73)&      (0.16)&      (0.91)&     (-1.16)&      (0.99)\\
-\addlinespace
-Constant            &       643.7&       136.3&       58.99&       157.9&       53.09&       34.08\\
-                    &     (22.69)&     (20.82)&     (15.02)&     (22.51)&     (13.72)&     (12.76)\\
-\midrule
-Observations        &         194&         166&          86&         168&          73&          86\\
-\bottomrule
-\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
-\end{tabular}
-\end{table}
-
 
 \doublespacing
 
@@ -301,8 +283,9 @@ The states with the highest ratios are depicted in Table~\ref{fcpercent}.
     South Dakota & 8     & 1         & 88.8          \\
     Minnesota    & 4     & 4         & 50            \\
     Iowa         & 1     & 0         & 100           \\
-    \caption{The extent to which states have historically forced sub-tribal bands to coexist.\label{fcpercent}}
     \end{tabular}
+        \caption{The extent to which states have historically forced sub-tribal bands to coexist.}
+    \label{fcpercent}
 \end{table}
 
 \subsection{Adult mortality}
@@ -494,6 +477,7 @@ In addition to the policy implications, we believe this paper contributes to the
 
 
 \newpage
+
 \bibliographystyle{te}
 \bibliography{main}
 
