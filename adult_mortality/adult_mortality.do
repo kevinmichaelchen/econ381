@@ -77,19 +77,29 @@ cap drop stroke
 cap drop respiratory
 cap drop cirrhosis
 cap drop chronic
+cap drop nonchronic
 
-gen all_causes    = mortality if cause == 1  /* sufficient n */
-gen cancer        = mortality if cause == 2  /* sufficient n */
-gen diabetes      = mortality if cause == 3
-gen cardio        = mortality if cause == 4  /* sufficient n */
-gen heart_disease = mortality if cause == 5  /* sufficient n */
-gen ischemic      = mortality if cause == 6  /* sufficient n */
-gen heart_attack  = mortality if cause == 7
-gen stroke        = mortality if cause == 8
-gen respiratory   = mortality if cause == 9
-gen cirrhosis     = mortality if cause == 10
-gen chronic       = mortality if cancer | diabetes | cardio | ///
-                                 heart_disease | ischemic | cirrhosis
+gen all_causes    = mortality if cause == 1 & !missing(mortality)  /* sufficient n */
+gen cancer        = mortality if cause == 2 & !missing(mortality)  /* sufficient n */
+gen diabetes      = mortality if cause == 3 & !missing(mortality)
+gen cardio        = mortality if cause == 4 & !missing(mortality)  /* sufficient n */
+gen heart_disease = mortality if cause == 5 & !missing(mortality)  /* sufficient n */
+gen ischemic      = mortality if cause == 6 & !missing(mortality)  /* sufficient n */
+gen heart_attack  = mortality if cause == 7 & !missing(mortality)
+gen stroke        = mortality if cause == 8 & !missing(mortality)
+gen respiratory   = mortality if cause == 9 & !missing(mortality)
+gen cirrhosis     = mortality if cause == 10 & !missing(mortality)
+
+gen chronic = 0
+foreach v of cancer diabetes cardio heart_disease ischemic cirrhosis {
+	replace chronic = chronic + mortality if `v' & !missing(mortality)
+}
+
+gen nonchronic = 0
+foreach v of heart_attack stroke respiratory {
+	replace nonchronic = nonchronic + mortality if `v' & !missing(mortality)
+}
+
 
 
 sum all_causes cancer diabetes cardio heart_disease ischemic heart_attack stroke respiratory cirrhosis
@@ -172,12 +182,15 @@ cap drop f4
 
 gen f1 = 	state=="California"
 reg chronic f1
+reg nonchronic f1
 
 gen f2 = 	state=="California" | state=="Washington"
 reg chronic f2
+reg nonchronic f2
 
 gen f3 = 	state=="California" | state=="Washington" | ///
 			state=="Arizona" 	| state=="Utah"
 reg chronic f3
+reg nonchronic f3
 
 log close
