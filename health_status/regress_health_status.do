@@ -21,19 +21,14 @@ gen forced_nonpoor  = forced_coex * income_nonpoor
 
 * Effect of Poor Income on Health Status in the Pacific and Mountain regions
 eststo clear
-eststo: reg percent_excellent forced_coex income_poor forced_poor
-eststo: reg percent_good forced_coex income_poor forced_poor
-eststo: reg percent_fair forced_coex income_poor forced_poor
-esttab using p_m_poor.tex, label nostar replace booktabs ///
-title(Effect of Poor Income on Health Statuses in the Pacific and Mountain Regions\label{pmpoor})
-
-* Effect of Poor Income on Health Status in the Pacific region
-eststo clear
-eststo: reg percent_excellent region_p income_poor forced_poor
-eststo: reg percent_good region_p income_poor forced_poor
-eststo: reg percent_fair region_p income_poor forced_poor
-esttab using p_poor.tex, label nostar replace booktabs ///
-title(Effect of Poor Income on Health Statuses in the Pacific Region\label{ppoor})
+eststo: reg percent_excellent	forced_coex income_poor forced_poor
+eststo: reg percent_good 		forced_coex income_poor forced_poor
+eststo: reg percent_fair 		forced_coex income_poor forced_poor
+eststo: reg percent_excellent	region_p	income_poor forced_poor
+eststo: reg percent_good 		region_p 	income_poor forced_poor
+eststo: reg percent_fair 		region_p 	income_poor forced_poor
+esttab using poorfc.tex, label nostar replace booktabs ///
+title(Effect of Poor Income and Forced Coexistence on Health Statuses\label{poorfc})
 
 * Effect of FCE on health statuses in P/M regions
 eststo clear
