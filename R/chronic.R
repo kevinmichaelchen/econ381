@@ -25,28 +25,44 @@ data[c("C11_y1","C11_y2","C11_y3","C11_y4","C12_y1","C12_y2","C12_y3","C12_y4")]
 # 9 "chronic lower respirator" 
 # 10 "chronic liver disease and cirrhosis"
 data["C11_y1"] <- NA
-data$C11_y1 <- sum(c(data$C2_y1, data$C3_y1, data$C4_y1, data$C5_y1, data$C6_y1, data$C9_y1, data$C10_y1), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C11_y1[row] <- sum(c(data$C2_y1[row], data$C3_y1[row], data$C4_y1[row], data$C5_y1[row], data$C6_y1[row], data$C9_y1[row], data$C10_y1[row]), na.rm=T)
+}
 
 data["C11_y2"] <- NA
-data$C11_y2 <- sum(c(data$C2_y2, data$C3_y2, data$C4_y2, data$C5_y2, data$C6_y2, data$C9_y2, data$C10_y2), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C11_y2[row] <- sum(c(data$C2_y2[row], data$C3_y2[row], data$C4_y2[row], data$C5_y2[row], data$C6_y2[row], data$C9_y2[row], data$C10_y2[row]), na.rm=T)
+}
 
 data["C11_y3"] <- NA
-data$C11_y3 <- sum(c(data$C2_y3, data$C3_y3, data$C4_y3, data$C5_y3, data$C6_y3, data$C9_y3, data$C10_y3), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C11_y3[row] <- sum(c(data$C2_y3[row], data$C3_y3[row], data$C4_y3[row], data$C5_y3[row], data$C6_y3[row], data$C9_y3[row], data$C10_y3[row]), na.rm=T)
+}
 
 data["C11_y4"] <- NA
-data$C11_y4 <- sum(c(data$C2_y4, data$C3_y4, data$C4_y4, data$C5_y4, data$C6_y4, data$C9_y4, data$C10_y4), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C11_y4[row] <- sum(c(data$C2_y4[row], data$C3_y4[row], data$C4_y4[row], data$C5_y4[row], data$C6_y4[row], data$C9_y4[row], data$C10_y4[row]), na.rm=T)
+}
 
 data["C12_y1"] <- NA
-data$C12_y1 <- sum(c(data$C7_y1, data$C8_y1), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C12_y1[row] <- sum(c(data$C7_y1[row], data$C8_y1[row]), na.rm=T)
+}
 
 data["C12_y2"] <- NA
-data$C12_y2 <- sum(c(data$C7_y2, data$C8_y2), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C12_y2[row] <- sum(c(data$C7_y2[row], data$C8_y2[row]), na.rm=T)
+}
 
 data["C12_y3"] <- NA
-data$C12_y3 <- sum(c(data$C7_y3, data$C8_y3), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C12_y3[row] <- sum(c(data$C7_y3[row], data$C8_y3[row]), na.rm=T)
+}
 
 data["C12_y4"] <- NA
-data$C12_y4 <- sum(c(data$C7_y4, data$C8_y4), na.rm=T)
+for (row in 1:length(data$State)) {
+  data$C12_y4[row] <- sum(c(data$C7_y4[row], data$C8_y4[row]), na.rm=T)
+}
 
 write.csv(data, file="adult_mortality2.csv")
 View(data)
