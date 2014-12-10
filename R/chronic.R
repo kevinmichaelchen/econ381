@@ -1,6 +1,14 @@
 setwd("~/Desktop/econ381")
 data = read.csv("reshape/adult_mortality_per_hundred_thousand.csv", header=T)
 
+for (c in 1:10) {
+  for (y in 1:4) {
+    s = paste0("data$`C",c,"_y",y,"`")
+    eval(parse(text=paste0(s,"[",s,"==999] <- NA")))
+  }
+}
+View(data)
+
 data[c("chronic_y1","chronic_y2","chronic_y3","chronic_y4","nonchronic_y1","nonchronic_y2","nonchronic_y3","nonchronic_y4")] <- NA
 
 # 1 "all" 
