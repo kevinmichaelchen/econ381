@@ -38,5 +38,5 @@ data["nonchronic_y4"] <- NA
 data$nonchronic_y4 <- data$C7_y4 + data$C8_y4
 
 data[1:10,1:5]
-#write.csv(data, file="adult_mortality2.csv", check.names=F)
-#View(data)
+write.csv(data, file="adult_mortality2.csv")
+View(data)
