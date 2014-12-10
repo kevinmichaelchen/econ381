@@ -85,6 +85,8 @@ gen heart_attack  = mortality if cause == 7 & !missing(mortality)
 gen stroke        = mortality if cause == 8 & !missing(mortality)
 gen respiratory   = mortality if cause == 9 & !missing(mortality)
 gen cirrhosis     = mortality if cause == 10 & !missing(mortality)
+gen chronic       = mortality if cause == 11 & !missing(mortality)
+gen nonchronic    = mortality if cause == 12 & !missing(mortality)
 
 cap drop forced_coex
 
@@ -103,7 +105,8 @@ title(Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality\label{fc1})
 ** MODEL 2
 eststo clear
 eststo: quietly reg chronic forced_coex
+eststo: quietly reg nonchronic forced_coex
 esttab using fc2.tex, label nostar replace booktabs ///
-title(Effect of Forced Coexistence on Adult Mortality of Chronic Diseases\label{fc2})
+title(Effect of Forced Coexistence on Adult Mortality of (Non)Chronic Diseases\label{fc2})
 
 log close
