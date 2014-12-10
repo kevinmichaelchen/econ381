@@ -9,7 +9,10 @@ for (c in 1:10) {
 }
 View(data)
 
-data[c("chronic_y1","chronic_y2","chronic_y3","chronic_y4","nonchronic_y1","nonchronic_y2","nonchronic_y3","nonchronic_y4")] <- NA
+# C11 = Chronic
+# C12 = Non-chronic
+# Create columns for CHRONIC and NON-CHRONIC mortality rates for specific state/period
+data[c("C11_y1","C11_y2","C11_y3","C11_y4","C12_y1","C12_y2","C12_y3","C12_y4")] <- NA
 
 # 1 "all" 
 # 2 "cancer"
@@ -21,30 +24,29 @@ data[c("chronic_y1","chronic_y2","chronic_y3","chronic_y4","nonchronic_y1","nonc
 # 8 "stroke" 
 # 9 "chronic lower respirator" 
 # 10 "chronic liver disease and cirrhosis"
-data["chronic_y1"] <- NA
-data$chronic_y1 <- data$C2_y1 + data$C3_y1 + data$C4_y1 + data$C5_y1 + data$C6_y1 + data$C9_y1 + data$C10_y1
+data["C11_y1"] <- NA
+data$C11_y1 <- sum(c(data$C2_y1, data$C3_y1, data$C4_y1, data$C5_y1, data$C6_y1, data$C9_y1, data$C10_y1), na.rm=T)
 
-data["chronic_y2"] <- NA
-data$chronic_y2 <- data$C2_y2 + data$C3_y2 + data$C4_y2 + data$C5_y2 + data$C6_y2 + data$C9_y2 + data$C10_y2
+data["C11_y2"] <- NA
+data$C11_y2 <- sum(c(data$C2_y2, data$C3_y2, data$C4_y2, data$C5_y2, data$C6_y2, data$C9_y2, data$C10_y2), na.rm=T)
 
-data["chronic_y3"] <- NA
-data$chronic_y3 <- data$C2_y3 + data$C3_y3 + data$C4_y3 + data$C5_y3 + data$C6_y3 + data$C9_y3 + data$C10_y3
+data["C11_y3"] <- NA
+data$C11_y3 <- sum(c(data$C2_y3, data$C3_y3, data$C4_y3, data$C5_y3, data$C6_y3, data$C9_y3, data$C10_y3), na.rm=T)
 
-data["chronic_y4"] <- NA
-data$chronic_y4 <- data$C2_y4 + data$C3_y4 + data$C4_y4 + data$C5_y4 + data$C6_y4 + data$C9_y4 + data$C10_y4
+data["C11_y4"] <- NA
+data$C11_y4 <- sum(c(data$C2_y4, data$C3_y4, data$C4_y4, data$C5_y4, data$C6_y4, data$C9_y4, data$C10_y4), na.rm=T)
 
-data["nonchronic_y1"] <- NA
-data$nonchronic_y1 <- data$C7_y1 + data$C8_y1
+data["C12_y1"] <- NA
+data$C12_y1 <- sum(c(data$C7_y1, data$C8_y1), na.rm=T)
 
-data["nonchronic_y2"] <- NA
-data$nonchronic_y2 <- data$C7_y2 + data$C8_y2
+data["C12_y2"] <- NA
+data$C12_y2 <- sum(c(data$C7_y2, data$C8_y2), na.rm=T)
 
-data["nonchronic_y3"] <- NA
-data$nonchronic_y3 <- data$C7_y3 + data$C8_y3
+data["C12_y3"] <- NA
+data$C12_y3 <- sum(c(data$C7_y3, data$C8_y3), na.rm=T)
 
-data["nonchronic_y4"] <- NA
-data$nonchronic_y4 <- data$C7_y4 + data$C8_y4
+data["C12_y4"] <- NA
+data$C12_y4 <- sum(c(data$C7_y4, data$C8_y4), na.rm=T)
 
-data[1:10,1:5]
 write.csv(data, file="adult_mortality2.csv")
 View(data)
