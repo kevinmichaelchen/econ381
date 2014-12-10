@@ -77,18 +77,18 @@ for (row in 1:length(long$cause)) {
 }
 long$mortality[long$mortality==0] = 0
 
-long$cause[long$cause=="C1"] = 1
-long$cause[long$cause=="C2"] = 2
-long$cause[long$cause=="C3"] = 3
-long$cause[long$cause=="C4"] = 4
-long$cause[long$cause=="C5"] = 5
-long$cause[long$cause=="C6"] = 6
-long$cause[long$cause=="C7"] = 7
-long$cause[long$cause=="C8"] = 8
-long$cause[long$cause=="C9"] = 9
-long$cause[long$cause=="C10"] = 10
-long$cause[long$cause=="C11"] = 11
-long$cause[long$cause=="C12"] = 12
+long$cause[long$cause=="C1"] <- 1
+long$cause[long$cause=="C2"] <- 2
+long$cause[long$cause=="C3"] <- 3
+long$cause[long$cause=="C4"] <- 4
+long$cause[long$cause=="C5"] <- 5
+long$cause[long$cause=="C6"] <- 6
+long$cause[long$cause=="C7"] <- 7
+long$cause[long$cause=="C8"] <- 8
+long$cause[long$cause=="C9"] <- 9
+long$cause[long$cause=="C10"] <- 10
+long$cause[long$cause=="C11"] <- 11
+long$cause[long$cause=="C12"] <- 12
 
 long["chronic"] <- 0
 long$chronic[long$cause==2] <- 1
