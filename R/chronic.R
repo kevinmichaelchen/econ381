@@ -4,7 +4,7 @@ data = read.csv("reshape/adult_mortality_per_hundred_thousand.csv", header=T)
 for (c in 1:10) {
   for (y in 1:4) {
     s = paste0("data$`C",c,"_y",y,"`")
-    eval(parse(text=paste0(s,"[",s,"==999] <- NA")))
+    eval(parse(text=paste0(s,"[",s,"==999] <- 0")))
   }
 }
 
@@ -71,11 +71,11 @@ long <- reshape(data, direction = "long", idvar="State",
                 times = c("C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","C11","C12"),
                 new.row.names = 1:624)
 
-long["mortality"] <- NA
+long["mortality"] <- 0
 for (row in 1:length(long$cause)) {
   long$mortality[row] <- sum(c(long$y1[row], long$y2[row], long$y3[row], long$y4[row]), na.rm=T)
 }
-long$mortality[long$mortality==0] = NA
+long$mortality[long$mortality==0] = 0
 
 long$cause[long$cause=="C1"] = 1
 long$cause[long$cause=="C2"] = 2
@@ -90,19 +90,19 @@ long$cause[long$cause=="C10"] = 10
 long$cause[long$cause=="C11"] = 11
 long$cause[long$cause=="C12"] = 12
 
-long["chronic"] <- F
-long$chronic[long$cause==2] <- T
-long$chronic[long$cause==3] <- T
-long$chronic[long$cause==4] <- T
-long$chronic[long$cause==5] <- T
-long$chronic[long$cause==6] <- T
-long$chronic[long$cause==9] <- T
-long$chronic[long$cause==10] <- T
+long["chronic"] <- 0
+long$chronic[long$cause==2] <- 1
+long$chronic[long$cause==3] <- 1
+long$chronic[long$cause==4] <- 1
+long$chronic[long$cause==5] <- 1
+long$chronic[long$cause==6] <- 1
+long$chronic[long$cause==9] <- 1
+long$chronic[long$cause==10] <- 1
 
-long["fc"] <- F
-long$fc[long$State=="Iowa"] <- T
-long$fc[long$State=="Utah"] <- T
-long$fc[long$State=="South Dakota"] <- T
+long["fc"] <- 0
+long$fc[long$State=="Iowa"] <- 1
+long$fc[long$State=="Utah"] <- 1
+long$fc[long$State=="South Dakota"] <- 1
 
 write.csv(long, file="adult_mortality2.csv")
 
