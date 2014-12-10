@@ -1,8 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 
-\usepackage[left=1.25in,right=1.25in]{geometry}
-%\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{booktabs}
 \usepackage{pdflscape}
 \usepackage{graphicx}
@@ -17,9 +16,9 @@
 
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
-    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
-    pdftoolbar=true,        % show Acrobat?s toolbar?
-    pdfmenubar=true,        % show Acrobat?s menu?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
     pdftitle={My title},    % title
@@ -50,7 +49,7 @@ The Effect of Forced Coexistence \\ on Native American Health Outcomes \\
 \maketitle
 
 \begin{abstract}
-Are Native American health outcomes lower in states and regions in which the US government forcefully integrated historically autonomous sub-tribal bands? This paper explores this question using a differences-in-differences strategy over a spatial dimension. We stratify data on Native American health outcomes by region/state, and then by period. We find that individuals' perceptions of their own health are lower in regions that were subject to forced coexistence. We find that adult mortality per hundred thousand is higher in states whose governments historically forced Native American groups to coexist.
+Are Native American health outcomes lower in states and regions in which the US government forcefully integrated historically autonomous sub-tribal bands? This paper explores this question using a differences-in-differences strategy over a spatial dimension. We stratify data on Native American health outcomes into two camps: regions/states that have likely been influenced by forced coexistence, and regions/states are less likely to have felt this influence. We find that individuals' perceptions of their own health are lower in regions that were subject to forced coexistence. We find that adult mortality per hundred thousand is higher in states whose governments historically forced Native American groups to coexist.
 \end{abstract}
 
 \newpage
@@ -71,7 +70,7 @@ Are Native American health outcomes lower in states and regions in which the US 
 % 1 page
 \section{Introduction}
 Are Native American health outcomes lower in states and regions in which the US government forcefully integrated historically autonomous sub-tribal bands? 
-This paper aims to answer that question in order to examine the broader questions, such as the way conflict or lack of intra-societal cohesion can affect individuals? health over long periods of time.
+This paper aims to answer that question in order to examine the broader questions, such as the way conflict or lack of intra-societal cohesion can affect individuals’ health over long periods of time.
 This is especially important for Native Americans, as they are the only group which has been systematically moved and forced to live with formerly hostile groups.
 However, given the variety and complexity of Native American cultures, it is likely that on the whole the effects we find are due to overall effects of social cohesion on health outcomes for most people as opposed to a specific trait about Native Americans.
 This would suggest that the question is relevant at a much larger scale, where social strife and conflict could be worsening health outcomes and healthcare delivery across the nation at large.
@@ -81,11 +80,32 @@ We collect data on Native American health outcomes from a 1998-2012 database fro
 The crux of our strategy relies on whether Native American sub-tribal bands in states and regions were historically forced to integrate.
 
 \subsection{Historical background}
-%TODO spruce this up
 The government of the United States has a history of dispossessing and relocating Native Americans tribes, especially during the westward expansion of the 19th and 20th century.
 This was especially true when said tribes lived on resource-rich land, such as locations of copper, silver, or gold veins. 
-Thus, \cite{dippel2010forced} uses historical mining rushes in the western U.S. as an instrumental variable in the forced coexistence of Native American tribes.  The mining rushes serve as a source of exogenous variation which determines whether or not the government placed formerly hostile bands together onto reservations.
-We do not perform this instrumental analysis ourselves and instead borrow data from Dippel on forced integration.  Unfortunately, we therefore do not account for potential selection biases in forced integration which coudld have affected Dippel's earlier work, though the varying nature of Native American tribes in the West ameliorates much of this problem.  Due to historical forced migrations of eastern Native Americans to the West, such as the Trail of Tears, there are likely few characteristics which significantly affect health which are inherent in western Native Americans but are not found in eastern Native Americans besides forced coexistence.
+\begin{figure}[ht!]
+\centering
+\begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.25]{mining.png}
+    \caption{Geo-database on Mining Clusters in Precious Metals and Coal}
+    \label{fig:strat:mining}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.3]{forcedintegration.png}
+    \caption{Reservations with (red square) and without (yellow circle) forced integration.}
+    \label{fig:strat:reservations}
+\end{subfigure}
+\caption{Basis for stratifying by the presence of historical forced coexistence.}
+\label{fig:strat}
+\end{figure}
+
+Thus, \cite{dippel2010forced} uses historical mining rushes in the western U.S. as an instrumental variable in the forced coexistence of Native American tribes.
+The mining rushes, which are illustrated in Figure~\ref{fig:strat:mining}, serve as a source of exogenous variation which determines whether or not the government placed formerly hostile bands together onto reservations.
+We do not perform this instrumental analysis ourselves and instead borrow data from Dippel on forced integration, which are illustrated in Figure~\ref{fig:strat:reservations}. 
+Unfortunately, we therefore do not account for potential selection biases in forced integration which could have affected Dippel's earlier work, though the varying nature of Native American tribes in the West ameliorates much of this problem.
+Due to historical forced migrations of eastern Native Americans to the West, such as the Trail of Tears, there are likely few characteristics which significantly affect health which are inherent in western Native Americans but are not found in eastern Native Americans besides forced coexistence.
+% TODO rewrite this sentence
 
 In our analysis we use the number of reservations in a state/region with and without forced coexistence.
 This allows us to stratify data into two spatial camps: those data from states/regions where forced coexistence (FC) was likely and those data from states/regions where FC was less likely.
@@ -158,6 +178,7 @@ The significant causes of death are cancer, diabetes, major cardiovascular disea
 
 Table~\ref{sumstat} shows statistics for adult mortality per hundred thousand people, aggregated for all states.
 The reason the number of observations varies for each disease is that diseases will be recorded as missing values in states where their mortality rates are too low.
+The table also includes a column indicating whether the disease is chronic or not.
 
 \begin{table}[htbp]\centering \caption{Summary statistics \label{sumstat}}
 \begin{tabular}{l c c  c c}\hline\hline
@@ -170,7 +191,7 @@ heart\_disease & 160.281 & 84.119  & 168 & Yes\\
 ischemic & 111.663 & 63.896  & 151 & Yes\\
 heart\_attack & 50.081 & 27.209  & 86 & No\\
 stroke & 47.078 & 20.183  & 74 & No\\
-respiratory & 50.982 & 29.281  & 73 & No\\
+respiratory & 50.982 & 29.281  & 73 & Yes\\
 cirrhosis & 35.449 & 21.189  & 86 & Yes\\
 \hline
 \end{tabular}
@@ -180,13 +201,20 @@ cirrhosis & 35.449 & 21.189  & 86 & Yes\\
 
 \subsection{Self-reported health status data}
 The first data set contains the self-reported health status for Native Americans, which is measured as excellent, good, or fair/poor, and it is measured in percent as well as base count.
-The data takes all of reported data from the Native American population of the U.S. and segments it by region of the country, by income status (poor, near poor, and non-poor) and by year from 1998-2012 in 3 year segments.
+The data take all of reported data from the Native American population of the U.S. and segments it by region of the country, by income status (poor, near poor, and non-poor) and by year from 1998-2012 in 3 year segments.
 
 \subsubsection{Income hypothesis}
 Figure~\ref{fig:health_status_by_income} shows the composition of self-reported health statuses across different income groups. Note that \emph{nonpoor}, the highest income group, has the largest percentage of people who reported they had ``excellent'' health and the smallest percentage of people who reported they had ``poor'' health. 
 This is somewhat expected, as wealthier people tend to have better health. 
 Wealthier people are on average more aware of their health and tend to report lower health statuses. 
 However, we hypothesize that ``nonpoor'' people are reporting their health statuses relative to how they perceive the health of others. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.3]{health_status_by_income.png}
+\caption{self-reported health by income}
+\label{fig:health_status_by_income}
+\end{figure}
 
 \subsubsection{Region hypothesis}
 Figure~\ref{fig:health_status_by_region} shows the composition of self-reported health statuses across different regions. 
@@ -196,60 +224,12 @@ However, we hypothesize that the Pacific and Mountain regions -- where there has
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.5]{health_status_by_income.png}
-\caption{self-reported health by income}
-\label{fig:health_status_by_income}
-\end{figure}
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[scale=0.5]{health_status_by_income.png}
+\includegraphics[scale=0.3]{health_status_by_income.png}
 \caption{self-reported health by region}
 \label{fig:health_status_by_region}
 \end{figure}
 
 
-\begin{figure}[ht!]
-\centering
-\begin{subfigure}{.5\textwidth}
-    \centering
-    \includegraphics[scale=0.25]{mining.png}
-    \caption{Geo-database on Mining Clusters in Precious Metals and Coal}
-    \label{fig:strat:mining}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-    \centering
-    \includegraphics[scale=0.3]{forcedintegration.png}
-    \caption{Reservations with (red square) and without (yellow circle) forced integration.}
-    \label{fig:strat:reservations}
-\end{subfigure}
-\caption{Basis for stratifying by the presence of historical forced coexistence.}
-\label{fig:strat}
-\end{figure}
-
-\subsection{Stratification by presence of forced coexistence}
-Figure~\ref{fig:strat:reservations} shows states/regions in which autonomous sub-tribal bands experienced forced integration. 
-To account for potential selection into forced integration, Dippel uses historical mining rushes (as depicted in Figure~\ref{fig:strat:mining}) as a source of exogenous variation in the government's incentive to forcefully integrate bands onto reservations. 
-
-In determining whether a region or state is a FC state, we consider its ratio of the number of reservations with forced integration to the total number of reservations.
-We consider states or regions with a ratio above some threshold to have forced coexistence.
-
-
-
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% % % % % % % % % % % % % % % %
-% 2 pages
-% 
-%\section{Identification Strategy}
-%biases of a naive estimate, describe comparison groups, intuition for this comparison
 
 
 % % % % % % % % % % % % % % % %
@@ -353,9 +333,18 @@ Observations        &          51&          51\\
 
 
 
-
+% % % % % % % % % % % % %
+% % % % % % % % % % % % %
+% % % % % % % % % % % % %
+% % % % % % % % % % % % %
+% % % % % % % % % % % % %
+% % % % % % % % % % % % %
 \subsection{Health status}
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (Pacific) on Health Statuses\label{statusp}} \begin{tabular}{l*{3}{c}} \toprule
+Originally there were three income levels: poor, nearpoor, and non-poor.
+However, to simplify things, we consider \emph{nearpoor} as \emph{poor}, thereby giving us a convenient binary to work with.
+
+% TODO combine into 1 table
+\begin{table}[ht!]\centering \caption{Effect of Forced Coexistence (Pacific) on Health Statuses\label{statusp}} \begin{tabular}{l*{3}{c}} \toprule
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
                     &\multicolumn{1}{c}{percent\_excellent}&\multicolumn{1}{c}{percent\_good}&\multicolumn{1}{c}{percent\_good}\\
 \midrule
@@ -388,9 +377,6 @@ Observations        &         568&         487&         487\\
 \end{tabular}
 \end{table}
 
-Originally there were three income levels: poor, nearpoor, and non-poor.
-However, to simplify things, we consider \emph{nearpoor} as \emph{poor}, thereby giving us a convenient binary to work with.
-
 Table~\ref{pmpoor} shows the effect of being poor (or nearpoor) on self-reported health statuses in the Pacific and Mountain regions.
 Table~\ref{ppoor} shows the same but for the Pacific region only.
 
@@ -407,7 +393,7 @@ We see the same general results from region and income variables in worsening Na
 Among the poor, the interaction variable between living in a FC state and poor income is statistically significantly dropping the percentage reporting excellent health by 3.912 percentage points and at the same time significantly increasing the percentage of people reporting good health by 5.145 percentage points.  
 This is an even stronger effect than was seen in the combined Pacific and Mountain regions because most of the loss of excellent outcomes among the poor in the combined regions was due to income alone, not due to the combination of income and forced coexistence.
 
-Again though, there is no statistically significant effect of the forced coexistence interaction term on any income group upon the fair outcomes, suggesting that forced coexistence is not drastically worsening poor Native Americans? health, but rather making it slightly worse, at least in their own perception. 
+Again though, there is no statistically significant effect of the forced coexistence interaction term on any income group upon the fair outcomes, suggesting that forced coexistence is not drastically worsening poor Native Americans’ health, but rather making it slightly worse, at least in their own perception. 
 
 % % % % % %
 \begin{table}[htbp]\centering \caption{Effect of Poor Income on Health Statuses in the Pacific and Mountain Regions\label{pmpoor}} \begin{tabular}{l*{3}{c}} \toprule
@@ -513,7 +499,7 @@ This may be because there is insufficient statistical power to detect difference
 % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % %
 \section{Conclusion}
-To conclude, our main findings are that forced coexistence does have a significant effect on individuals? health outcomes, though not in the way that we imagined.  
+To conclude, our main findings are that forced coexistence does have a significant effect on individuals’ health outcomes, though not in the way that we imagined.  
 Rather than decreasing perceptions of health across the board our findings reveal that most of the damage is done in reducing excellent health to more mediocre results.  
 Moreover, we imagined that in terms of specific diseases, forced coexistence would have more of an effect in certain diseases, perhaps in ones with high contagiousness where social control would have to be exerted to keep the damages down.  
 Instead, forced coexistence seemed to affect overall health conditions, like mortality, but did not have a statistically significant effect on any one cause of death.
@@ -521,8 +507,8 @@ Instead, forced coexistence seemed to affect overall health conditions, like mor
 This findings are important because they answer affirmatively that forced coexistence does effect health and because give us some valuable insight on how forced coexistence has damaged the Native American communities. 
 The broad effects of forced coexistence suggest that health is being affected through overall less efficient administration of the reservation as compared to single nation Native American reservations.  
 This could occur through mechanisms like lower overall income, worse delivery of public medical services, and uncertain reservation medical policies as Native American groups struggle politically. 
-Also, though overall healthiness is damaged, it seems that it is fairly equitable among individuals in a society with forced coexistence, given that no diseases were more prominent and that Native Americans? perceptions of health were clumped heavily around good. 
-They were in good health relative to their neighbors though they we?re likely lower than Native Americans in other reservations or off the reservation.  
+Also, though overall healthiness is damaged, it seems that it is fairly equitable among individuals in a society with forced coexistence, given that no diseases were more prominent and that Native Americans’ perceptions of health were clumped heavily around good. 
+They were in good health relative to their neighbors though they we’re likely lower than Native Americans in other reservations or off the reservation.  
 
 Of course, further research is required in individual Native American reservations to pinpoint the true causes of these worse health outcomes. 
 However, given what we now know, we recommend that policies be enacted to increase efficiency of health care delivery within the reservations of the Pacific and Mountain regions which experience forced coexistence. 
@@ -537,4 +523,3 @@ In addition to the policy implications, we believe this paper contributes to the
 
 
 \end{document}
-
