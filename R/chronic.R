@@ -99,6 +99,11 @@ long$chronic[long$cause==6] <- T
 long$chronic[long$cause==9] <- T
 long$chronic[long$cause==10] <- T
 
+long["fc"] <- F
+long$fc[long$State=="Iowa"] <- T
+long$fc[long$State=="Utah"] <- T
+long$fc[long$State=="South Dakota"] <- T
+
 write.csv(long, file="adult_mortality2.csv")
 
 View(long)
