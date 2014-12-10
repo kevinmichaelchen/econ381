@@ -17,9 +17,9 @@
 
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
-    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
-    pdftoolbar=true,        % show Acrobat’s toolbar?
-    pdfmenubar=true,        % show Acrobat’s menu?
+    unicode=false,          % non-Latin characters in Acrobat?s bookmarks
+    pdftoolbar=true,        % show Acrobat?s toolbar?
+    pdfmenubar=true,        % show Acrobat?s menu?
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
     pdftitle={My title},    % title
@@ -71,7 +71,7 @@ Are Native American health outcomes lower in states and regions in which the US 
 % 1 page
 \section{Introduction}
 Are Native American health outcomes lower in states and regions in which the US government forcefully integrated historically autonomous sub-tribal bands? 
-This paper aims to answer that question in order to examine the broader questions, such as the way conflict or lack of intra-societal cohesion can affect individuals’ health over long periods of time.
+This paper aims to answer that question in order to examine the broader questions, such as the way conflict or lack of intra-societal cohesion can affect individuals? health over long periods of time.
 This is especially important for Native Americans, as they are the only group which has been systematically moved and forced to live with formerly hostile groups.
 However, given the variety and complexity of Native American cultures, it is likely that on the whole the effects we find are due to overall effects of social cohesion on health outcomes for most people as opposed to a specific trait about Native Americans.
 This would suggest that the question is relevant at a much larger scale, where social strife and conflict could be worsening health outcomes and healthcare delivery across the nation at large.
@@ -272,55 +272,68 @@ We get both the numerator and the denominator from the location of both FC and n
 The states with the highest ratios are depicted in Table~\ref{fcpercent}.  From this data, we can see that Washington, Arizona, and South Dakota are the states with a significant number of reservations and with a high percentage of forced coexistence.
 
 \begin{table}[ht!]
-    \centering
-    \begin{tabular}{llll}
-    State        & \# FC & \# non-FC & Percentage FC \\
-    Iowa         & 1     & 0         & 100           \\
-    Utah         & 2     & 0         & 100           \\
+	\centering
+    \begin{tabular}{ | l | l | l | l | }\hline\hline
+    State        & \# FC & \# non-FC & Percentage FC \\\hline
+	Iowa         & 1     & 0         & 100           \\
+	Utah         & 2     & 0         & 100           \\
     South Dakota & 8     & 1         & 88.8          \\
-    Washington   & 20    & 3         & 86.9          \\
+	Washington   & 20    & 3         & 86.9          \\
     Arizona      & 15    & 3         & 83.3          \\
-    Oregon       & 2     & 1         & 66.6          \\
+	Oregon       & 2     & 1         & 66.6          \\
     Montana      & 3     & 2         & 60            \\
     California   & 14    & 14        & 50            \\
     Nevada       & 6     & 6         & 50            \\
     North Dakota & 1     & 1         & 50            \\
-    Minnesota    & 4     & 4         & 50            \\
+    Minnesota    & 4     & 4         & 50            \\\hline
     \end{tabular}
     \caption{The extent to which states have historically forced sub-tribal bands to coexist.}
     \label{fcpercent}
 \end{table}
 
 \subsection{Adult mortality}
-Table~\ref{adult4} shows that if a state is a FC state (California, Washington, Montana, Arizona, Iowa, and Utah), then it is expected on average to have higher mortality for ``all causes.'' 
+Table~\ref{fc1} shows that if a state is a FC state (Iowa, Utah, or South Dakota), then it is expected on average to have higher mortality for ``all causes.'' 
 This reinforces the theory that forced integration has had a detrimental effect on Native American health outcomes. 
-Interestingly, however, the forced coexistence variable in Table~\ref{adult4} does not have a statistically significant effect on the individual diseases themselves. 
-Tables~\ref{adult2} and \ref{adult3} show similar results.
+Moreover, the forced coexistence variable has a statistically significant effect on the mortality of diabetes and cirrhosis.
+This is not the case, however, for other individual diseases, such as cancer, heart disease, and chronic respiratory diseases.
 
-By contrast, in Table~\ref{adult1} where the only FC state is California, we find that forced coexistence is less significant on ``all causes'' but has a more significant effect on the indivudal diseases across the board.
-
-% TODO justify what states we use based on which states have the highest ratio: FCE reservations / total reservations
-% TODO include table for Forced Coex (some states) on adult mortality of diseases
-
-
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality\label{fc1}} \begin{tabular}{l*{6}{c}} \toprule
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-                    &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
+\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality of Chronic Diseases\label{fc1}} \begin{tabular}{l*{8}{c}} \toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+                    &\multicolumn{1}{c}{all\_causes}&\multicolumn{1}{c}{cancer}&\multicolumn{1}{c}{diabetes}&\multicolumn{1}{c}{cardio}&\multicolumn{1}{c}{heart\_disease}&\multicolumn{1}{c}{ischemic}&\multicolumn{1}{c}{respiratory}&\multicolumn{1}{c}{cirrhosis}\\
 \midrule
-forced\_coex         &      1459.0&       153.1&       158.5&       198.5&       17.42&       75.67\\
-                    &      (1.65)&      (0.81)&      (2.05)&      (0.91)&      (0.26)&      (1.49)\\
+forced\_coex         &      1459.0&       153.1&       158.5&       333.1&       198.5&       74.54&       17.42&       75.67\\
+                    &      (1.65)&      (0.81)&      (2.05)&      (1.26)&      (0.91)&      (0.48)&      (0.26)&      (1.49)\\
 \addlinespace
-Constant            &      2471.4&       440.7&       90.69&       516.3&       71.95&       55.32\\
-                    &     (11.53)&      (9.57)&      (4.83)&      (9.80)&      (4.48)&      (4.49)\\
+Constant            &      2471.4&       440.7&       90.69&       718.1&       516.3&       326.2&       71.95&       55.32\\
+                    &     (11.53)&      (9.57)&      (4.83)&     (11.22)&      (9.80)&      (8.63)&      (4.48)&      (4.49)\\
 \midrule
-Observations        &          51&          51&          51&          51&          51&          51\\
+Observations        &          51&          51&          51&          51&          51&          51&          51&          51\\
 \bottomrule
-\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{9}{l}{\footnotesize \textit{t} statistics in parentheses}\\
 \end{tabular}
 \end{table}
 
 
-\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence on Adult Mortality of (Non)Chronic Diseases\label{fc2}} \begin{tabular}{l*{2}{c}} \toprule
+Table~\ref{fc2} shows the effect of forced coexistence on the mortalities of non-chronic diseases, such as stroke and heart attack. The FC effect is not significant on the mortality rates of either disease.
+Moreover, according to Table~\ref{fc_chronic}, we lack the statistical power to show a significant relationship between a state being an FC state and its mortalities for both chronic and non-chronic diseases.
+
+\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality of Non-chronic Diseases\label{fc2}} \begin{tabular}{l*{2}{c}} \toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+                    &\multicolumn{1}{c}{heart\_attack}&\multicolumn{1}{c}{stroke}\\
+\midrule
+forced\_coex         &       93.02&       9.765\\
+                    &      (1.43)&      (0.17)\\
+\addlinespace
+Constant            &       78.98&       67.74\\
+                    &      (5.02)&      (4.83)\\
+\midrule
+Observations        &          51&          51\\
+\bottomrule
+\multicolumn{3}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]\centering \caption{Effect of Forced Coexistence on Adult Mortality of (Non)Chronic Diseases\label{fc_chronic}} \begin{tabular}{l*{2}{c}} \toprule
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
                     &\multicolumn{1}{c}{chronic}&\multicolumn{1}{c}{nonchronic}\\
 \midrule
@@ -394,7 +407,7 @@ We see the same general results from region and income variables in worsening Na
 Among the poor, the interaction variable between living in a FC state and poor income is statistically significantly dropping the percentage reporting excellent health by 3.912 percentage points and at the same time significantly increasing the percentage of people reporting good health by 5.145 percentage points.  
 This is an even stronger effect than was seen in the combined Pacific and Mountain regions because most of the loss of excellent outcomes among the poor in the combined regions was due to income alone, not due to the combination of income and forced coexistence.
 
-Again though, there is no statistically significant effect of the forced coexistence interaction term on any income group upon the fair outcomes, suggesting that forced coexistence is not drastically worsening poor Native Americans’ health, but rather making it slightly worse, at least in their own perception. 
+Again though, there is no statistically significant effect of the forced coexistence interaction term on any income group upon the fair outcomes, suggesting that forced coexistence is not drastically worsening poor Native Americans? health, but rather making it slightly worse, at least in their own perception. 
 
 % % % % % %
 \begin{table}[htbp]\centering \caption{Effect of Poor Income on Health Statuses in the Pacific and Mountain Regions\label{pmpoor}} \begin{tabular}{l*{3}{c}} \toprule
@@ -500,7 +513,7 @@ This may be because there is insufficient statistical power to detect difference
 % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % %
 \section{Conclusion}
-To conclude, our main findings are that forced coexistence does have a significant effect on individuals’ health outcomes, though not in the way that we imagined.  
+To conclude, our main findings are that forced coexistence does have a significant effect on individuals? health outcomes, though not in the way that we imagined.  
 Rather than decreasing perceptions of health across the board our findings reveal that most of the damage is done in reducing excellent health to more mediocre results.  
 Moreover, we imagined that in terms of specific diseases, forced coexistence would have more of an effect in certain diseases, perhaps in ones with high contagiousness where social control would have to be exerted to keep the damages down.  
 Instead, forced coexistence seemed to affect overall health conditions, like mortality, but did not have a statistically significant effect on any one cause of death.
@@ -508,8 +521,8 @@ Instead, forced coexistence seemed to affect overall health conditions, like mor
 This findings are important because they answer affirmatively that forced coexistence does effect health and because give us some valuable insight on how forced coexistence has damaged the Native American communities. 
 The broad effects of forced coexistence suggest that health is being affected through overall less efficient administration of the reservation as compared to single nation Native American reservations.  
 This could occur through mechanisms like lower overall income, worse delivery of public medical services, and uncertain reservation medical policies as Native American groups struggle politically. 
-Also, though overall healthiness is damaged, it seems that it is fairly equitable among individuals in a society with forced coexistence, given that no diseases were more prominent and that Native Americans’ perceptions of health were clumped heavily around good. 
-They were in good health relative to their neighbors though they we’re likely lower than Native Americans in other reservations or off the reservation.  
+Also, though overall healthiness is damaged, it seems that it is fairly equitable among individuals in a society with forced coexistence, given that no diseases were more prominent and that Native Americans? perceptions of health were clumped heavily around good. 
+They were in good health relative to their neighbors though they we?re likely lower than Native Americans in other reservations or off the reservation.  
 
 Of course, further research is required in individual Native American reservations to pinpoint the true causes of these worse health outcomes. 
 However, given what we now know, we recommend that policies be enacted to increase efficiency of health care delivery within the reservations of the Pacific and Mountain regions which experience forced coexistence. 
@@ -524,3 +537,4 @@ In addition to the policy implications, we believe this paper contributes to the
 
 
 \end{document}
+

@@ -96,17 +96,26 @@ eststo clear
 eststo: quietly reg all_causes forced_coex
 eststo: quietly reg cancer forced_coex 
 eststo: quietly reg diabetes forced_coex 
+eststo: quietly reg cardio forced_coex 
 eststo: quietly reg heart_disease forced_coex 
+eststo: quietly reg ischemic forced_coex 
 eststo: quietly reg respiratory forced_coex 
 eststo: quietly reg cirrhosis forced_coex 
 esttab using fc1.tex, label nostar replace booktabs ///
-title(Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality\label{fc1})
+title(Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality of Chronic Diseases\label{fc1})
 
 ** MODEL 2
 eststo clear
+eststo: quietly reg heart_attack forced_coex 
+eststo: quietly reg stroke forced_coex 
+esttab using fc2.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality of Non-chronic Diseases\label{fc2})
+
+** MODEL 3
+eststo clear
 eststo: quietly reg chronic forced_coex
 eststo: quietly reg nonchronic forced_coex
-esttab using fc2.tex, label nostar replace booktabs ///
-title(Effect of Forced Coexistence on Adult Mortality of (Non)Chronic Diseases\label{fc2})
+esttab using fc_chronic.tex, label nostar replace booktabs ///
+title(Effect of Forced Coexistence on Adult Mortality of (Non)Chronic Diseases\label{fc_chronic})
 
 log close
