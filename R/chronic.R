@@ -66,3 +66,28 @@ for (row in 1:length(data$State)) {
 
 write.csv(data, file="adult_mortality2.csv")
 View(data)
+
+long <- reshape(data,
+                varying = c("C1_y1", "C1_y2", "C1_y3", "C1_y4",
+                            "C2_y1", "C2_y2", "C2_y3", "C2_y4",
+                            "C3_y1", "C3_y2", "C3_y3", "C3_y4",
+                            "C4_y1", "C4_y2", "C4_y3", "C4_y4",
+                            "C5_y1", "C5_y2", "C5_y3", "C5_y4",
+                            "C6_y1", "C6_y2", "C6_y3", "C6_y4",
+                            "C7_y1", "C7_y2", "C7_y3", "C7_y4",
+                            "C8_y1", "C8_y2", "C8_y3", "C8_y4",
+                            "C9_y1", "C9_y2", "C9_y3", "C9_y4",
+                            "C10_y1", "C10_y2", "C10_y3", "C10_y4",
+                            "C11_y1", "C11_y2", "C11_y3", "C11_y4",
+                            "C12_y1", "C12_y2", "C12_y3", "C12_y4"
+                            ),
+                v.names = c("all", "cancer", "diabetes", 
+                            "cardiovascular_disease", "heart_disease", 
+                            "ischemic_heart_disease", "heart_attack", 
+                            "stroke", "chronic_lower_respirator", 
+                            "chronic_liver_disease_and_cirrhosis", 
+                            "chronic", "nonchronic"),
+                timevar = "years",
+                times = c("2000-2002", "2003-2005", "2006-2008", "2009-2011"),
+                new.row.names = 1:208,
+                direction = "long")
