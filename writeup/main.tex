@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
 
 \usepackage[left=1.25in,right=1.25in]{geometry}
 %\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
@@ -15,9 +16,10 @@
 
 
 \hypersetup{
-    unicode=false,          % non-Latin characters in Acrobats bookmarks
-    pdftoolbar=true,        % show Acrobat's toolbar?
-    pdfmenubar=true,        % show Acrobat's menu?
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
     pdftitle={My title},    % title
@@ -53,6 +55,7 @@ Are Native American health outcomes lower in states and regions in which the US 
 
 \newpage
 
+
 \doublespacing
 
 % % % % % % % % % % % % % % % %
@@ -68,7 +71,7 @@ Are Native American health outcomes lower in states and regions in which the US 
 % 1 page
 \section{Introduction}
 Are Native American health outcomes lower in states and regions in which the US government forcefully integrated historically autonomous sub-tribal bands? 
-This paper aims to answer that question in order to examine the broader questions, such as the way conflict or lack of intra-societal cohesion can affect individuals'™ health over long periods of time.
+This paper aims to answer that question in order to examine the broader questions, such as the way conflict or lack of intra-societal cohesion can affect individuals’ health over long periods of time.
 This is especially important for Native Americans, as they are the only group which has been systematically moved and forced to live with formerly hostile groups.
 However, given the variety and complexity of Native American cultures, it is likely that on the whole the effects we find are due to overall effects of social cohesion on health outcomes for most people as opposed to a specific trait about Native Americans.
 This would suggest that the question is relevant at a much larger scale, where social strife and conflict could be worsening health outcomes and healthcare delivery across the nation at large.
@@ -79,12 +82,12 @@ The crux of our strategy relies on whether Native American sub-tribal bands in s
 
 \subsection{Historical background}
 %TODO spruce this up
-US government has history of dispossessing and relocating Native Americans.
-This was especially true when said tribes lived on resource-rich land. 
-\cite{dippel2010forced} uses historical mining rushes as an IV, a source of exogenous variation in the government's incentive to combine bands onto reservations.
-We do not do this and therefore do not account for potential selection in forced integration. 
-We merely borrow data from Dippel on forced integration.
-Specifically, we use the number of reservations in a state/region with and without forced coexistence.
+The government of the United States has a history of dispossessing and relocating Native Americans tribes, especially during the westward expansion of the 19th and 20th century.
+This was especially true when said tribes lived on resource-rich land, such as locations of copper, silver, or gold veins. 
+Thus, \cite{dippel2010forced} uses historical mining rushes in the western U.S. as an instrumental variable in the forced coexistence of Native American tribes.  The mining rushes serve as a source of exogenous variation which determines whether or not the government placed formerly hostile bands together onto reservations.
+We do not perform this instrumental analysis ourselves and instead borrow data from Dippel on forced integration.  Unfortunately, we therefore do not account for potential selection biases in forced integration which coudld have affected Dippel's earlier work, though the varying nature of Native American tribes in the West ameliorates much of this problem.  Due to historical forced migrations of eastern Native Americans to the West, such as the Trail of Tears, there are likely few characteristics which significantly affect health which are inherent in western Native Americans but are not found in eastern Native Americans besides forced coexistence.
+
+In our analysis we use the number of reservations in a state/region with and without forced coexistence.
 This allows us to stratify data into two spatial camps: those data from states/regions where forced coexistence (FC) was likely and those data from states/regions where FC was less likely.
 By comparing the health outcomes of Native Americans in these states over time, we separate and find the statistical effects of forced coexistence solely on health outcomes.
     
@@ -244,7 +247,7 @@ We consider states or regions with a ratio above some threshold to have forced c
 % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % %
 % 2 pages
-% TODO
+% 
 %\section{Identification Strategy}
 %biases of a naive estimate, describe comparison groups, intuition for this comparison
 
@@ -264,31 +267,32 @@ We consider states or regions with a ratio above some threshold to have forced c
 \subsection{What counts as a FC state/region?}
 In order to execute our difference-in-differences strategy, we need to be able to separate regions and states into two camps: those that are likely to be FC and those that are less likely to be FC. For each state or region, we consider the ratio:
 $$\frac{\mbox{\# of FC reservations}}{\mbox{\# of total reservations}}$$
-We get both the numerator and the denominator from the red squares in Figure~\ref{fig:strat:reservations}. Our numbers are rough estimates, as we can only provide eyeball figures for the overlapping clusters of dots.
+We get both the numerator and the denominator from the location of both FC and non-FC reservations as seen in Figure~\ref{fig:strat:reservations}.
 
-The states with the highest ratios are depicted in Table~\ref{fcpercent}.
+The states with the highest ratios are depicted in Table~\ref{fcpercent}.  From this data, we can see that Washington, Arizona, and South Dakota are the states with a significant number of reservations and with a high percentage of forced coexistence.
 
 \begin{table}[ht!]
+	\centering
     \begin{tabular}{llll}
     State        & \# FC & \# non-FC & Percentage FC \\
-    Washington   & 20    & 3         & 86.9          \\
-    Oregon       & 2     & 1         & 66.6          \\
+	Iowa         & 1     & 0         & 100           \\
+	Utah         & 2     & 0         & 100           \\
+    South Dakota & 8     & 1         & 88.8          \\
+	Washington   & 20    & 3         & 86.9          \\
+    Arizona      & 15    & 3         & 83.3          \\
+	Oregon       & 2     & 1         & 66.6          \\
+    Montana      & 3     & 2         & 60            \\
     California   & 14    & 14        & 50            \\
     Nevada       & 6     & 6         & 50            \\
-    Utah         & 2     & 0         & 100           \\
-    Arizona      & 15    & 3         & 83.3          \\
-    Montana      & 3     & 2         & 60            \\
     North Dakota & 1     & 1         & 50            \\
-    South Dakota & 8     & 1         & 88.8          \\
     Minnesota    & 4     & 4         & 50            \\
-    Iowa         & 1     & 0         & 100           \\
     \end{tabular}
-        \caption{The extent to which states have historically forced sub-tribal bands to coexist.}
+    \caption{The extent to which states have historically forced sub-tribal bands to coexist.}
     \label{fcpercent}
 \end{table}
 
 \subsection{Adult mortality}
-Table~\ref{adult4} shows that if a state is a FC state (California, Washington, Montana, Arizona, Idaho, and Utah), then it is expected on average to have higher mortality for ``all causes.'' 
+Table~\ref{adult4} shows that if a state is a FC state (California, Washington, Montana, Arizona, Iowa, and Utah), then it is expected on average to have higher mortality for ``all causes.'' 
 This reinforces the theory that forced integration has had a detrimental effect on Native American health outcomes. 
 Interestingly, however, the forced coexistence variable in Table~\ref{adult4} does not have a statistically significant effect on the individual diseases themselves. 
 Tables~\ref{adult2} and \ref{adult3} show similar results.
@@ -359,7 +363,7 @@ We see the same general results from region and income variables in worsening Na
 Among the poor, the interaction variable between living in a FC state and poor income is statistically significantly dropping the percentage reporting excellent health by 3.912 percentage points and at the same time significantly increasing the percentage of people reporting good health by 5.145 percentage points.  
 This is an even stronger effect than was seen in the combined Pacific and Mountain regions because most of the loss of excellent outcomes among the poor in the combined regions was due to income alone, not due to the combination of income and forced coexistence.
 
-Again though, there is no statistically significant effect of the forced coexistence interaction term on any income group upon the fair outcomes, suggesting that forced coexistence is not drastically worsening poor Native Americans'€™ health, but rather making it slightly worse, at least in their own perception. 
+Again though, there is no statistically significant effect of the forced coexistence interaction term on any income group upon the fair outcomes, suggesting that forced coexistence is not drastically worsening poor Native Americans’ health, but rather making it slightly worse, at least in their own perception. 
 
 % % % % % %
 \begin{table}[htbp]\centering \caption{Effect of Poor Income on Health Statuses in the Pacific and Mountain Regions\label{pmpoor}} \begin{tabular}{l*{3}{c}} \toprule
@@ -418,11 +422,19 @@ Observations        &         568&         487&         356\\
 % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % %
 \section{Measurement issues}
-discuss that it would have been nice to get state-by-state income data and do an interaction term
 
-pretty confident in mortality figures published by CDC
+Our data on self-reported health status is less precise than we would have liked because we were not able to find state by state income and health status data and were forced to use regions as a substitute.  This is a problem because state by state data is significantly more useful than regional data in evaluating the differences between FC and non-FC reservations because it has more statistical power.  Reservations in our FC states, Washington, South Dakota, and Arizona, are much more likely to have underwent forced coexistence than reservations in our FC regions, the Mountain and Pacific regions.
 
-talk about missing data issue - missing for some diseases at some point in time - too few to estimate they put a dot/missing
+because the mountain and pacific regions are not as likely to have FC reservations and thus feature less statistical power than our state by state analysis of 
+
+Similarly, we would have liked to include income data for our analysis of Native American mortality to  determine whether or not there was a significant interaction term between forced coexistence and income on this facted of Native American health.  This would have been an excellent robustness test for our analysis on the effects of FC which vary by income from our data on Native American self-reported health status.  
+
+We are highly confident in the mortality figures as published by the CDC.  However, there is missing data for states for some diseases at given points in time due to their being too few deaths to estimate the true death rate per 100,000.
+
+Beyond these specific issues, the analysis is somewhat weakened by the general measurement problems of self-reported health status and mortality.  Self-reported health status is greatly affected by the health of the individual's community, as the individual may be in poor health but sees himself as in good health in comparison to the people living near him.  Self-reported health status findings naturally lump around good, as people are likely to see themselves as in average health.  Moreover, poorer individuals are less likely to report themselves as being in poorer health due to lack of knowledge about their conditions, though this is dealt with in large part in our analysis by examining the interaction term between income and forced coexistence on health rather than simply the effects of forced coexistence.  
+
+As for mortatlity, the CDC's data depends on institutional records which are imperfect, especially on Native American reservations, which could explain the significant prevalence of missing values in our CDC dataset.  However, there is no evidence that insitutional problems are more evident on FC reservations or that they affect the diseases we observe in a non-random manner, so it is reasonable to assume that these institutional problems do not significantly affect our analysis.
+
 
 % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % %
@@ -457,7 +469,7 @@ This may be because there is insufficient statistical power to detect difference
 % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % %
 \section{Conclusion}
-To conclude, our main findings are that forced coexistence does have a significant effect on individuals' health outcomes, though not in the way that we imagined.  
+To conclude, our main findings are that forced coexistence does have a significant effect on individuals’ health outcomes, though not in the way that we imagined.  
 Rather than decreasing perceptions of health across the board our findings reveal that most of the damage is done in reducing excellent health to more mediocre results.  
 Moreover, we imagined that in terms of specific diseases, forced coexistence would have more of an effect in certain diseases, perhaps in ones with high contagiousness where social control would have to be exerted to keep the damages down.  
 Instead, forced coexistence seemed to affect overall health conditions, like mortality, but did not have a statistically significant effect on any one cause of death.
@@ -465,8 +477,8 @@ Instead, forced coexistence seemed to affect overall health conditions, like mor
 This findings are important because they answer affirmatively that forced coexistence does effect health and because give us some valuable insight on how forced coexistence has damaged the Native American communities. 
 The broad effects of forced coexistence suggest that health is being affected through overall less efficient administration of the reservation as compared to single nation Native American reservations.  
 This could occur through mechanisms like lower overall income, worse delivery of public medical services, and uncertain reservation medical policies as Native American groups struggle politically. 
-Also, though overall healthiness is damaged, it seems that it is fairly equitable among individuals in a society with forced coexistence, given that no diseases were more prominent and that Native Americans' perceptions of health were clumped heavily around good. 
-They were in good health relative to their neighbors though they we'€™re likely lower than Native Americans in other reservations or off the reservation.  
+Also, though overall healthiness is damaged, it seems that it is fairly equitable among individuals in a society with forced coexistence, given that no diseases were more prominent and that Native Americans’ perceptions of health were clumped heavily around good. 
+They were in good health relative to their neighbors though they we’re likely lower than Native Americans in other reservations or off the reservation.  
 
 Of course, further research is required in individual Native American reservations to pinpoint the true causes of these worse health outcomes. 
 However, given what we now know, we recommend that policies be enacted to increase efficiency of health care delivery within the reservations of the Pacific and Mountain regions which experience forced coexistence. 
@@ -476,7 +488,6 @@ In addition to the policy implications, we believe this paper contributes to the
 
 
 \newpage
-
 \bibliographystyle{te}
 \bibliography{main}
 
