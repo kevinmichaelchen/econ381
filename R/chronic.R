@@ -75,6 +75,7 @@ long["mortality"] <- NA
 for (row in 1:length(long$cause)) {
   long$mortality[row] <- sum(c(long$y1[row], long$y2[row], long$y3[row], long$y4[row]), na.rm=T)
 }
+long$mortality[long$mortality==0] = NA
 
 
 write.csv(long, file="adult_mortality2.csv")
