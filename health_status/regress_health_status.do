@@ -6,8 +6,8 @@ cap use "datasets/health_status.dta"
 log using "health_status/regress_health_status.log", text replace
 
 * forced coexistence: mountain region or pacific region
-cap drop forced_coex
-gen forced_coex = region_m | region_p
+cap drop region_pm
+gen region_pm = region_m | region_p
 
 * Combine poor and nearpoor; make it binary to reduce # of regressions
 replace income_poor = income_poor | income_nearpoor
@@ -16,25 +16,25 @@ replace income_poor = income_poor | income_nearpoor
 cap drop forced_poor
 cap drop forced_nearpoor
 cap drop forced_nonpoor
-gen forced_poor     = forced_coex * income_poor
-gen forced_nonpoor  = forced_coex * income_nonpoor
+gen forced_poor_pm = region_pm * income_poor
+gen forced_poor_p  = region_p * income_poor
 
 * Effect of Poor Income on Health Status in the Pacific and Mountain regions
 eststo clear
-eststo: reg percent_excellent	forced_coex income_poor forced_poor
-eststo: reg percent_good 		forced_coex income_poor forced_poor
-eststo: reg percent_fair 		forced_coex income_poor forced_poor
-eststo: reg percent_excellent	region_p	income_poor forced_poor
-eststo: reg percent_good 		region_p 	income_poor forced_poor
-eststo: reg percent_fair 		region_p 	income_poor forced_poor
+eststo: reg percent_excellent	region_pm income_poor forced_poor_pm
+eststo: reg percent_good 		region_pm income_poor forced_poor_pm
+eststo: reg percent_fair 		region_pm income_poor forced_poor_pm
+eststo: reg percent_excellent	region_p	income_poor forced_poor_p
+eststo: reg percent_good 		region_p 	income_poor forced_poor_p
+eststo: reg percent_fair 		region_p 	income_poor forced_poor_p
 esttab using poorfc.tex, label nostar replace booktabs ///
 title(Effect of Poor Income and Forced Coexistence on Health Statuses\label{poorfc})
 
 * Effect of FCE on health statuses in P/M regions
 eststo clear
-eststo: reg percent_excellent forced_coex
-eststo: reg percent_good forced_coex
-eststo: reg percent_good forced_coex
+eststo: reg percent_excellent region_pm
+eststo: reg percent_good region_pm
+eststo: reg percent_good region_pm
 esttab using statuspm.tex, label nostar replace booktabs ///
 title(Effect of Forced Coexistence (Pacific and Mountain) on Health Statuses\label{statuspm})
 
