@@ -70,8 +70,8 @@ label var excellent_health "Excellent health"
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 * Look at health over region and income
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-ssc install spineplot
-spineplot region income
+*ssc install spineplot
+*spineplot region income
 
 
 log close
