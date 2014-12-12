@@ -253,15 +253,15 @@ We get both the numerator and the denominator from the location of both FC and n
 
 
 \begin{table}[ht!]
-    \centering
+	\centering
     \begin{tabular}{ | l | l | l | l | }\hline\hline
     State        & \# FC & \# non-FC & Percentage FC \\\hline
-    Iowa         & 1     & 0         & 100           \\
-    Utah         & 2     & 0         & 100           \\
+	Iowa         & 1     & 0         & 100           \\
+	Utah         & 2     & 0         & 100           \\
     South Dakota & 8     & 1         & 88.8          \\
-    Washington   & 20    & 3         & 86.9          \\
+	Washington   & 20    & 3         & 86.9          \\
     Arizona      & 15    & 3         & 83.3          \\
-    Oregon       & 2     & 1         & 66.6          \\
+	Oregon       & 2     & 1         & 66.6          \\
     Montana      & 3     & 2         & 60            \\
     California   & 14    & 14        & 50            \\
     Nevada       & 6     & 6         & 50            \\
@@ -337,19 +337,19 @@ Observations        &          51&          51\\
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
                     &\multicolumn{1}{c}{percent\_excellent}&\multicolumn{1}{c}{percent\_good}&\multicolumn{1}{c}{percent\_fair}&\multicolumn{1}{c}{percent\_excellent}&\multicolumn{1}{c}{percent\_good}&\multicolumn{1}{c}{percent\_fair}\\
 \midrule
-region\_pm           &      -8.632&       4.228&       3.281&            &            &            \\
+FC\_pm           &      -8.632&       4.228&       3.281&            &            &            \\
                     &     (-6.47)&      (4.52)&      (2.18)&            &            &            \\
 \addlinespace
-forced\_poor\_pm      &       1.369&       2.591&      -3.513&            &            &            \\
+FC\_pm\_poor      &       1.369&       2.591&      -3.513&            &            &            \\
                     &      (0.73)&      (1.91)&     (-1.53)&            &            &            \\
 \addlinespace
-income\_poor         &      -5.710&       2.829&       6.709&      -5.354&       3.116&       6.538\\
+poor         &      -5.710&       2.829&       6.709&      -5.354&       3.116&       6.538\\
                     &     (-4.86)&      (3.15)&      (4.18)&     (-5.22)&      (4.13)&      (4.87)\\
 \addlinespace
-region\_p            &            &            &            &      -7.908&       5.006&      -0.217\\
+FC\_p            &            &            &            &      -7.908&       5.006&      -0.217\\
                     &            &            &            &     (-4.76)&      (4.53)&     (-0.12)\\
 \addlinespace
-forced\_poor\_p       &            &            &            &      -1.941&       3.980&      -4.174\\
+FC\_p\_poor       &            &            &            &      -1.941&       3.980&      -4.174\\
                     &            &            &            &     (-0.85)&      (2.60)&     (-1.63)\\
 \addlinespace
 Constant            &       56.27&       30.15&       18.92&       54.84&       30.67&       20.36\\
@@ -380,10 +380,10 @@ However, the insignificant interaction terms for ``excellent'' and ``fair'' sugg
 
 \subsubsection{Pacific Forced Coexistence}
 In the Pacific alone, we see similar negative results from forced coexistence. 
-We see the same general results from the forced coexistence term (region\_p) and income variables in worsening Native American health, except for the effect of forced coexistence on fair outcomes.
+We see the same general results from the forced coexistence term (\emph{FC\_p}) and income variables in worsening Native American health, except for the effect of forced coexistence on fair health statuses.
 In the Pacific, the effect of forced coexistence did not have a statistically significant effect on the percentage reporting fair outcomes. 
-Moreover, the interaction terms between forced coexistence and income are the same, though the effect of increasing good outcomes is larger. 
-This suggests that the combination of lowering income and forced coexistence has an even stronger effec in making Native American health slightly worse because they are moving from excellent to good self reports.
+Moreover, relative to the combined Pacific-Mountain models, the interaction terms between forced coexistence and income are virtually the same, though the effect of increasing good outcomes is larger and significant at the $p=0.05$ level. 
+This suggests that the combination of lowering income and forced coexistence has an even stronger effect in making Native American health slightly worse, as evidenced by the shift in self-reported health statuses from ``excellent'' to ``good.''
 
 
 
@@ -401,17 +401,23 @@ This suggests that the combination of lowering income and forced coexistence has
 % % % % % % % % % % % % % % % %
 \section{Measurement issues}
 
-Our data on self-reported health status is less precise than we would have liked because we were not able to find state by state income and health status data and were forced to use regions as a substitute.  This is a problem because state by state data is significantly more useful than regional data in evaluating the differences between FC and non-FC reservations because it has more statistical power.  Reservations in our FC states, Washington, South Dakota, and Arizona, are much more likely to have underwent forced coexistence than reservations in our FC regions, the Mountain and Pacific regions.
+Our data on self-reported health status is less disaggregated than we would have liked, since we were unable to find state-by-state income and health status data and were forced to use regions as a substitute.  
+State-by-state data would have been much more useful than regional data in evaluating the differences between FC and non-FC reservations due to the additional statistical power.
+Reservations in our FC states (Washington, South Dakota, and Arizona) are much more likely to have underwent forced coexistence than reservations in our FC regions (the Mountain and Pacific regions).
 
-because the mountain and pacific regions are not as likely to have FC reservations and thus feature less statistical power than our state by state analysis of 
+Similarly, we would have liked to include income data for our analysis of Native American mortality to  determine whether or not there was a significant interaction term between forced coexistence and income on this facted of Native American health.
+This would have been an excellent robustness test for our analysis on the effects of FC which vary by income from our data on Native American self-reported health status.  
 
-Similarly, we would have liked to include income data for our analysis of Native American mortality to  determine whether or not there was a significant interaction term between forced coexistence and income on this facted of Native American health.  This would have been an excellent robustness test for our analysis on the effects of FC which vary by income from our data on Native American self-reported health status.  
+We are highly confident in the mortality figures as published by the CDC.
+However, there is missing data for states for some diseases at given points in time due to their being too few deaths to estimate the true death rate per 100,000.
 
-We are highly confident in the mortality figures as published by the CDC.  However, there is missing data for states for some diseases at given points in time due to their being too few deaths to estimate the true death rate per 100,000.
+Beyond these specific issues, the analysis is somewhat weakened by the general measurement problems of self-reported health status and mortality.
+Self-reported health status is greatly affected by the health of the individual's community, as the individual may be in poor health but sees himself as in good health in comparison to the people living near him.  
+Self-reported health status findings naturally lump around good, as people are likely to see themselves as having average health.
+Moreover, poorer individuals are less likely to report themselves as being in poorer health due to lack of knowledge about their conditions, though this is dealt with in large part in our analysis by examining the interaction term between income and forced coexistence on health rather than simply the effects of forced coexistence.  
 
-Beyond these specific issues, the analysis is somewhat weakened by the general measurement problems of self-reported health status and mortality.  Self-reported health status is greatly affected by the health of the individual's community, as the individual may be in poor health but sees himself as in good health in comparison to the people living near him.  Self-reported health status findings naturally lump around good, as people are likely to see themselves as in average health.  Moreover, poorer individuals are less likely to report themselves as being in poorer health due to lack of knowledge about their conditions, though this is dealt with in large part in our analysis by examining the interaction term between income and forced coexistence on health rather than simply the effects of forced coexistence.  
-
-As for mortatlity, the CDC's data depends on institutional records which are imperfect, especially on Native American reservations, which could explain the significant prevalence of missing values in our CDC dataset.  However, there is no evidence that insitutional problems are more evident on FC reservations or that they affect the diseases we observe in a non-random manner, so it is reasonable to assume that these institutional problems do not significantly affect our analysis.
+As for mortality, the CDC's data depends on institutional records which are imperfect, especially on Native American reservations, which could explain the significant prevalence of missing values in our CDC dataset.
+However, there is no evidence that insitutional problems are more evident on FC reservations or that they affect the diseases we observe in a non-random manner, so it is reasonable to assume that these institutional problems do not significantly affect our analysis.
 
 
 % % % % % % % % % % % % % % % %
@@ -427,7 +433,10 @@ As for mortatlity, the CDC's data depends on institutional records which are imp
 \section{Discussion}
 \subsection{Self-reported health statuses}
 \subsubsection{Forced coexistence and fair self-reported health status}
-In Table~\ref{poorfc}, in column 6, neither forced coexistence nor its interaction term have a statistically significant effect on the percentage of people reporting fair health status.  However, in the combined anaysis of the Pacific and the Mountain regions then the effect of forced coexistence is significantly increasing the percentage of people reporting fair.  This suggests that other variables that we do not observe are likely largely increasing the amount of Native Americans reporting fair health.  These variables likely are linked to factors like worse overall healthcare or better awareness of their own health, which leads to lower self-reported health status.
+In Table~\ref{poorfc}, in column 6, neither Pacific forced coexistence nor its interaction term have a statistically significant effect on the percentage of people reporting fair health status.
+However, in column 3, Pacific-Mountain forced coexistence is significantly increasing the percentage of people reporting fair.
+This suggests that other variables that we do not observe are likely largely increasing the amount of Native Americans reporting fair health.
+These variables likely are linked to factors, such as worse overall healthcare or better awareness of their own health, which lead to lower self-reported health status.
 
 
 % % % % % % % % % % % % % % % %
@@ -441,9 +450,9 @@ In Table~\ref{poorfc}, in column 6, neither forced coexistence nor its interacti
 % % % % % % % % % % % % % % % %
 % % % % % % % % % % % % % % % %
 \section{Conclusion}
-To conclude, our main findings are that forced coexistence does have a significant effect on individuals’ health outcomes, though not in the way that we imagined.  
-Rather than decreasing perceptions of health across the board our findings reveal that most of the damage is done in reducing excellent health to more mediocre results.  
-Moreover, we imagined that in terms of specific diseases, forced coexistence would have more of an effect in certain diseases, perhaps in ones with high contagiousness where social control would have to be exerted to keep the damages down.  
+To conclude, forced coexistence significantly affects individuals’ health outcomes, though not in the way we imagined.
+Rather than decreasing perceptions of health across the board, most of the damage is done in reducing excellent health to more mediocre results.  
+Moreover, we imagined that in terms of specific diseases, forced coexistence would have more of an effect on certain diseases, perhaps in ones with high contagiousness where social control would have to be exerted to keep the damages down.  
 Instead, forced coexistence seemed to affect overall health conditions, and it increased the mortality of almost all deadly diseases, both non-chronic and chronic.
 
 This findings are important because they answer affirmatively that forced coexistence does affect health and because they give us some valuable insight on how forced coexistence has damaged the Native American communities. 
@@ -453,7 +462,7 @@ Also, though overall healthiness is damaged, it seems that it is fairly equitabl
 They were in good health relative to their neighbors though they we’re likely in worse health than Native Americans in single nation reservations or off the reservation.  
 
 Of course, further research is required in individual Native American reservations to pinpoint the true causes of these worse health outcomes. 
-However, given what we now know, we recommend that policies be enacted to increase efficiency of health care delivery within the reservations of the Pacific and Mountain regions which experience forced coexistence. 
+However, given what we now know, we recommend that policies be enacted to increase efficiency of health care delivery within the reservations of the Pacific and Mountain regions, and in states that were most influenced by forced coexistence (i.e., Arizona, Washington, and South Dakota).
 The exact nature of these programs will depend on the flaws discovered by more pinpointed research, but we expect there to be problems of insufficient information regarding diseases and distant or poorly stocked supply of medical services. 
 These should be solved by providing subsidies for information and further provision of medicine in a cost effective manner. 
 In addition to the policy implications, we believe this paper contributes to the literature on the long lasting health consequences of social strife and heavy handed government relocation of ethnic or racial groups.
