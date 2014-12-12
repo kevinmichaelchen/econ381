@@ -91,7 +91,7 @@ gen nonchronic    = mortality if cause == 12 & !missing(mortality)
 cap drop forced_coex
 
 ** MODEL 1
-gen forced_coex = state=="Iowa" | state=="Utah" | state=="South Dakota"
+gen forced_coex = state=="Washington" | state=="Arizona" | state=="South Dakota"
 eststo clear
 eststo: quietly reg all_causes forced_coex
 eststo: quietly reg cancer forced_coex 
@@ -102,14 +102,14 @@ eststo: quietly reg ischemic forced_coex
 eststo: quietly reg respiratory forced_coex 
 eststo: quietly reg cirrhosis forced_coex 
 esttab using fc1.tex, label nostar replace booktabs ///
-title(Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality of Chronic Diseases\label{fc1})
+title(Effect of Forced Coexistence (WA, AZ, SD) on Adult Mortality of Chronic Diseases\label{fc1})
 
 ** MODEL 2
 eststo clear
 eststo: quietly reg heart_attack forced_coex 
 eststo: quietly reg stroke forced_coex 
 esttab using fc2.tex, label nostar replace booktabs ///
-title(Effect of Forced Coexistence (IA, UT, SD) on Adult Mortality of Non-chronic Diseases\label{fc2})
+title(Effect of Forced Coexistence (WA, AZ, SD) on Adult Mortality of Non-chronic Diseases\label{fc2})
 
 ** MODEL 3
 eststo clear
