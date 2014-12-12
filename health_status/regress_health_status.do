@@ -21,9 +21,9 @@ gen forced_poor_p  = region_p * income_poor
 
 * Effect of Poor Income on Health Status in the Pacific and Mountain regions
 eststo clear
-eststo: reg percent_excellent	region_pm income_poor forced_poor_pm
-eststo: reg percent_good 		region_pm income_poor forced_poor_pm
-eststo: reg percent_fair 		region_pm income_poor forced_poor_pm
+eststo: reg percent_excellent	region_pm  forced_poor_pm income_poor
+eststo: reg percent_good 		region_pm  forced_poor_pm income_poor
+eststo: reg percent_fair 		region_pm  forced_poor_pm income_poor
 eststo: reg percent_excellent	region_p	income_poor forced_poor_p
 eststo: reg percent_good 		region_p 	income_poor forced_poor_p
 eststo: reg percent_fair 		region_p 	income_poor forced_poor_p
